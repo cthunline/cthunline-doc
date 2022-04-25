@@ -6,10 +6,10 @@ LoginBody:
     email:
       type: 'string'
       format: 'email'
-      description: "User email"
+      description: 'User email'
     password:
       type: 'string'
-      description: "User password"
-  example:
-    username: 'lucie.bronze@example.com'
-    password: 'password123'
+      description: 'User password'
+  required:
+    - email
+    - password

@@ -2,7 +2,7 @@
 
 post:
   tags:
-    - 'Registration'
+    - 'Users'
   summary: 'Register a user'
   description: 'This endpoint is reachable only if registrations are enabled'
   security: []

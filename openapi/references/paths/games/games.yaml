@@ -1,0 +1,17 @@
+# /api/games
+
+get:
+  tags:
+    - 'Games'
+  summary: 'Get all games'
+  description: ''
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/games.yaml#/GameList'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'

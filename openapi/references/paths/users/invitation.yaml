@@ -2,7 +2,7 @@
 
 post:
   tags:
-    - 'Registration'
+    - 'Users'
   summary: 'Generate an invitation code'
   description: 'This endpoint is reachable only if registration and invitation are enabled'
   responses:

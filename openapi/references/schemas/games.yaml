@@ -1,0 +1,19 @@
+# Games
+
+Game:
+  type: 'object'
+  properties:
+    id:
+      type: 'string'
+      enum: ['callOfCthulhu','starWarsD6']
+    name:
+      type: 'string'
+      description: 'Game name'
+
+GameList:
+  type: 'object'
+  properties:
+    games:
+      type: 'array'
+      items:
+        $ref: '#/Game'

@@ -1,0 +1,71 @@
+# /api/users/{uuid}/assets/{uuid}
+
+get:
+  tags:
+    - 'Assets'
+  summary: 'Get an asset'
+  description: ''
+  parameters:
+    - name: 'userId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+    - name: 'assetId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/assets.yaml#/Asset'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'
+
+delete:
+  tags:
+    - 'Assets'
+  summary: 'Delete an asset'
+  description: ''
+  parameters:
+    - name: 'userId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+    - name: 'assetId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: 'object'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'

@@ -1,0 +1,73 @@
+# /api/users
+
+get:
+  tags:
+    - 'Assets'
+  summary: 'Get a directory'
+  description: ''
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/assets.yaml#/Directory'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'
+
+post:
+  tags:
+    - 'Assets'
+  summary: 'Update a directory'
+  description: ''
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/assets.yaml#/DirectoryEditBody'
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/assets.yaml#/Directory'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'
+
+delete:
+  tags:
+    - 'Assets'
+  summary: 'Delete a directory'
+  description: ''
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: 'object'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'

@@ -5,17 +5,15 @@ Configuration:
   properties:
     registrationEnabled:
       type: 'boolean'
-      description: "If registration is enabled"
+      description: 'If registration is enabled'
     invitationEnabled:
       type: 'boolean'
-      description: "If invitation is enabled"
+      description: 'If invitation is enabled'
     defaultTheme:
       type: 'string'
       enum: ['light','dark']
-      description: "Default theme"
-      example: 'dark'
+      description: 'Default theme'
     defaultLocale:
       type: 'string'
       enum: ['en','fr']
-      description: "Default language"
-      example: 'en'
+      description: 'Default language'

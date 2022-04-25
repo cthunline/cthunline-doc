@@ -18,9 +18,30 @@ paths:
   /api/users/{userId}:
     $ref: './references/paths/users/users-id.yaml'
   /api/register:
-    $ref: './references/paths/registration/register.yaml'
+    $ref: './references/paths/users/register.yaml'
   /api/invitation:
-    $ref: './references/paths/registration/invitation.yaml'
+    $ref: './references/paths/users/invitation.yaml'
+  # Games
+  /api/games:
+    $ref: './references/paths/games/games.yaml'
+  /api/games/{gameId}:
+    $ref: './references/paths/games/games-id.yaml'
+  # Assets
+  /api/users/:userId/assets:
+    $ref: './references/paths/assets/assets.yaml'
+  /api/users/:userId/assets/:assetId:
+    $ref: './references/paths/assets/assets-id.yaml'
+  /api/users/:userId/directories:
+    $ref: './references/paths/assets/assets.yaml'
+  /api/users/:userId/directories/:directoryId:
+    $ref: './references/paths/assets/assets-id.yaml'
+  # Sessions
+  /api/sessions:
+    $ref: './references/paths/sessions/sessions.yaml'
+  /api/sessions/:sessionId:
+    $ref: './references/paths/sessions/sessions-id.yaml'
+  /api/sessions/:sessionId/notes:
+    $ref: './references/paths/sessions/notes.yaml'
 
 # Components
 components:

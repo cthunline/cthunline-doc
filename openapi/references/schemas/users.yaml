@@ -40,6 +40,10 @@ RegisterBody:
     - $ref: '#/BaseData'
     - $ref: '#/Password'
     - $ref: '#/InvitationCode'
+    - required:
+      - name
+      - email
+      - password
 
 # ----------------------------------- Fragments
 
@@ -49,14 +53,13 @@ BaseData:
     name:
       type: 'string'
       minLength: 6
-      description: "User name"
+      description: 'User name'
       example: 'lucie.bronze'
     email:
       type: 'string'
       format: 'email'
       minLength: 6
-      description: "User email"
-      example: 'lucie.bronze@example.com'
+      description: 'User email'
 
 MetaData:
   type: 'object'
@@ -65,28 +68,25 @@ MetaData:
       type: 'string'
       format: 'country-code'
       enum: ['en','fr']
-      description: "User configured language"
-      example: 'en'
+      description: 'User configured language'
     theme:
       type: 'string'
       enum: ['light','dark']
-      description: "User configured theme"
-      example: 'dark'
+      description: 'User configured theme'
     isAdmin:
       type: 'boolean'
-      description: "If user is an administrator"
+      description: 'If user is an administrator'
     isEnabled:
       type: 'boolean'
-      description: "If user account is enabled"
+      description: 'If user account is enabled'
 
 Password:
   type: 'object'
   properties:
     password:
       type: 'string'
-      description: "User password"
+      description: 'User password'
       minLength: 6
-      example: 'password123'
 
 OldPassword:
   type: 'object'
@@ -94,13 +94,11 @@ OldPassword:
     oldPassword:
       type: 'string'
       minLength: 6
-      description: "User former password"
-      example: 'password456'
+      description: 'User former password'
 
 InvitationCode:
   type: 'object'
   properties:
     invitationCode:
       type: 'string'
-      description: "Invitation code needed to register"
-      example: '3a1e781ca6fb85bd'
+      description: 'Invitation code needed to register'

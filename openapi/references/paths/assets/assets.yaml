@@ -1,0 +1,67 @@
+# /api/users/{uuid}/assets
+
+get:
+  tags:
+    - 'Assets'
+  summary: 'Get all assets of a user'
+  description: ''
+  parameters:
+    - name: 'userId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/assets.yaml#/AssetList'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'
+
+post:
+  tags:
+    - 'Assets'
+  summary: 'Upload assets'
+  description: 'Upload one or more assets'
+  parameters:
+    - name: 'userId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+  consumes:
+    - image/jpeg
+    - image/png
+    - image/svg+xml
+    - audio/mpeg
+  requestBody:
+  content: 
+    multipart/form-data:
+      schema:
+        $ref: '../../schemas/assets.yaml#/AssetUploadBody'
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/assets.yaml#/AssetList'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'
