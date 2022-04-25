@@ -1,0 +1,29 @@
+# Meta data
+openapi: '3.0.3'
+info:
+  version: 'v1.0'
+  title: 'Cthunline REST API'
+
+# API routes
+paths:
+  # Authentication
+  /api/auth:
+    $ref: './references/paths/auth/auth.yaml'
+  # Users
+  /api/users:
+    $ref: './references/paths/users/users.yaml'
+  /api/users/{userId}:
+    $ref: './references/paths/users/users-id.yaml'
+
+# Components
+components:
+  # Security
+  securitySchemes:
+    CookieAuth:
+      type: 'apiKey'
+      in: 'cookie'
+      name: 'token'
+      description: 'Authentication cookie'
+
+security:
+  - CookieAuth: []

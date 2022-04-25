@@ -1,0 +1,33 @@
+DocumentId:
+  type: 'object'
+  properties:
+    id:
+      type: 'string'
+      format: 'uuid'
+      example: 'a96fbec3c7a19f93b237c44'
+
+CreateUpdateInfo:
+  type: 'object'
+  properties:
+    createdAt:
+      type: 'string'
+      format: 'date-time'
+      description: 'Creation date'
+      example: '2022-01-01T00:00:00.000Z'
+    updatedAt:
+      type: 'string'
+      format: 'date-time'
+      description: 'Last update date'
+      example: '2022-01-01T00:00:00.000Z'
+
+Error:
+  type: 'object'
+  properties:
+    error:
+      type: 'string'
+      description: 'Error message'
+    data:
+      type: 'array'
+      description: 'Error data'
+      items:
+        type: 'object'
