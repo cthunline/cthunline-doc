@@ -6,6 +6,9 @@ info:
 
 # API routes
 paths:
+  # Configuration
+  /api/configuration:
+    $ref: './references/paths/configuration/configuration.yaml'
   # Authentication
   /api/auth:
     $ref: './references/paths/auth/auth.yaml'
@@ -14,6 +17,10 @@ paths:
     $ref: './references/paths/users/users.yaml'
   /api/users/{userId}:
     $ref: './references/paths/users/users-id.yaml'
+  /api/register:
+    $ref: './references/paths/registration/register.yaml'
+  /api/invitation:
+    $ref: './references/paths/registration/invitation.yaml'
 
 # Components
 components:

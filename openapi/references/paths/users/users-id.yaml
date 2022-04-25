@@ -55,6 +55,8 @@ post:
       $ref: '../../schemas/global.yaml#/Error'
     401:
       $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
     404:
       $ref: '../../schemas/global.yaml#/Error'
     409:

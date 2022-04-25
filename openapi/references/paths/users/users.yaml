@@ -37,6 +37,8 @@ post:
       $ref: '../../schemas/global.yaml#/Error'
     401:
       $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
     409:
       $ref: '../../schemas/global.yaml#/Error'
     500:

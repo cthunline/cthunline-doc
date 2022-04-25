@@ -21,6 +21,7 @@ post:
     - 'Authentication'
   summary: 'Login'
   description: 'Use this endpoint to authenticate into the API using an email and a password'
+  security: []
   requestBody:
     required: true
     content:

@@ -1,0 +1,21 @@
+# Configuration
+
+Configuration:
+  type: 'object'
+  properties:
+    registrationEnabled:
+      type: 'boolean'
+      description: "If registration is enabled"
+    invitationEnabled:
+      type: 'boolean'
+      description: "If invitation is enabled"
+    defaultTheme:
+      type: 'string'
+      enum: ['light','dark']
+      description: "Default theme"
+      example: 'dark'
+    defaultLocale:
+      type: 'string'
+      enum: ['en','fr']
+      description: "Default language"
+      example: 'en'
