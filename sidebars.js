@@ -14,17 +14,17 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
     docs: [
-        'getting-started',
+        'introduction',
         'deployment',
-        {
-            type: 'category',
-            label: 'Chat bots',
-            collapsible: false,
-            items: [
-                'bot-slack'
-            ]
-        },
         'first-usage'
+        // {
+        //     type: 'category',
+        //     label: 'Some article',
+        //     collapsible: false,
+        //     items: [
+        //         'some-article'
+        //     ]
+        // }
     ]
 };
 

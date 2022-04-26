@@ -1,12 +1,74 @@
 # Deployment
 
+## Database
+
+Cthunline uses [MongoDB](https://www.mongodb.com/) as database, and [Prisma](https://www.prisma.io/) as ORM.
+
+This means two things:
+
+* You must setup a MongoDB instance alongside the app
+* This MongoDB instance has to be configured as a replica set
+  * Yes, even for a single node deployment, that's a Prisma requirement
+
+Setting up a MongoDB replica set is not so hard but can be a hustle for people that are not used to it.
+
+The [Bitnami MongoDB Docker image](https://github.com/bitnami/bitnami-docker-mongodb) provides an easy way of deploying a replicat set using Docker.
+
+Otherwise, you can do it youself, here is an example of `docker-compose.yaml` that you can use as a starting point:
+
+```yaml
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: on-failure
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongo_data:/data/db
+      - mongo_keyfile:/data/keyfile
+      ### Uncomment on first run so the keyFile can be grabbed by the container
+      # - /etc/mongodb:/opt/keyFile
+    networks:
+      - mongo-network
+    ports:
+      - 27017:27017
+    ### Uncomment on first run to initialize the replica set
+    # healthcheck:
+    #  test: test $$(echo 'rs.initiate({_id:"rs0",members:[{_id:0,host:"mongo"}]}).ok || rs.status().ok' | mongo -u $${MONGO_INITDB_ROOT_USERNAME} -p $${MONGO_INITDB_ROOT_PASSWORD} --quiet) -eq 1
+    #  interval: 10s
+    #  start_period: 30s
+    ### Uncomment on first run to grab keyFile and copy it in a container directory
+    # entrypoint:
+    #  - bash
+    #  - -c
+    #  - |
+    #    cp /opt/keyFile/keyFile /data/keyfile/mongodb.key
+    #    chmod 400 /data/keyfile/mongodb.key
+    #    chown 999:999 /data/keyfile/mongodb.key
+    #    exec docker-entrypoint.sh $$@
+    command: '--bind_ip_all --auth --replSet rs0 --keyFile /data/keyfile/mongodb.key'
+
+volumes:
+  mongo_data:
+  mongo_keyfile:
+
+networks:
+  mongo-network:
+    name: mongo
+    internal: true
+```
+
 ## Docker
 
-Freeday can be easily deployed using Docker images.
+Cthunline can be easily deployed using Docker images.
 
-You can find below an example of `docker-compose.yaml` file and its `.env` companion.
+You will find below an example of `docker-compose.yaml` file and its `.env` companion.
 
-Edit configuration as you wish then run the whole thing using `docker-compose up -d`.
+Edit configuration as you wish then use `docker-compose up -d` to run the container.
 
 ### docker-compose.yml
 
@@ -14,156 +76,107 @@ Edit configuration as you wish then run the whole thing using `docker-compose up
 version: '3'
 
 services:
-  freeday-api:
-    image: freedayapp/freeday-api
-    container_name: freeday-api
+  cthunline:
+    image: cthunline
+    container_name: cthunline
     restart: always
     env_file:
       - .env
+    volumes:
+      - cthunline_assets:/data/assets
+      - cthunline_logs:/data/logs
     networks:
-      - freeday-network
+      - cthunline-network
+      - mongo-network
     ports:
-      - 8787:8787
-  freeday-web:
-    image: freedayapp/freeday-web
-    container_name: freeday-web
-    restart: always
-    env_file:
-      - .env
-    networks:
-      - freeday-network
-    ports:
-      - 8788:8788
-  freeday-mongo:
-    image: mongo
-    container_name: freeday-mongo
-    restart: always
-    command: mongod --quiet --logpath /dev/null
-    networks:
-      - freeday-network
+      - 8080:8080
+
+volumes:
+  cthunline_assets:
+  cthunline_logs:
 
 networks:
-  freeday-network:
-    name: freeday
+  cthunline-network:
+    name: cthunline
+  mongo-network:
+    name: mongo
+    external: true
 ```
 
 ### .env
 
 ```shell
-##
-## General
-##
-
-# Freeday web front URL
-# E.g. https://sub.domain.com/ or http://localhost:8788/
-FRONT_PUBLIC_URL=https://freeday.domain.com/
-
-# Freeday API URL
-# E.g. https://sub.domain.com/ or http://localhost:8787/
-API_PUBLIC_URL=https://freeday.domain.com/
-
-# Port on which Freeday API will run
-API_PORT=8787
-
-# Path to logs directory
-API_LOG_DIR=/var/log/freeday
-
-# Enable CORS on API
-# Required if running Freeday on localhost
-# Not recommended in production
-#API_ENABLE_CORS=false
-
-##
-## Database
-##
-
-# Mongo database URL
-MONGO_URL=mongodb://freeday-mongo:27017/freeday
-
-# Mongo test database URL
-# This database is used when running tests
-# Not required in production
-#MONGO_TEST_URL=mongodb://freeday-mongo:27017/freeday-test
-
-##
-## Slack bot
-##
-
-# If Slack bot should be enabled
-SLACK_ENABLED=true
-
-# Slack configuration
-SLACK_CLIENT_ID=1234567891234.1234567891234
-SLACK_CLIENT_SECRET=12345678912341234567891234
-SLACK_SIGNING_SECRET=abc123abc123abc123abc123abc123
-SLACK_ACCESS_TOKEN=xoxb-12345678-12345678-abc123abc123abc123abc123
-
-##
-## Dialogflow
-##
-
-# If Dialogflow NLU should be enabled
-DIALOGFLOW_ENABLED=false
-
-# Dialogflow configuration
-#DIALOGFLOW_KEYFILE=/path/to/keyfile.json
-#DIALOGFLOW_ENDPOINT=europe-west1-dialogflow.googleapis.com
-#DIALOGFLOW_PROJECT=my-project
-#DIALOGFLOW_LOCATION=europe-west1
-#DIALOGFLOW_ENVIRONMENT=production
-#DIALOGFLOW_USER=my-user
-#DIALOGFLOW_SESSION=1234
-#DIALOGFLOW_LANGUAGE=en
+#
+# App
+#
+# Credentials for the default user
+DEFAULT_ADMIN_NAME=admin
+DEFAULT_ADMIN_EMAIL=admin@admin.com
+DEFAULT_ADMIN_PASSWORD=cthunline
+# If registration is enabled
+REGISTRATION_ENABLED=1
+# (optional) If registering must require an invitation code
+INVITATION_ENABLED=1
+# Default theme (dark or light)
+DEFAULT_THEME=dark
+# Default language
+DEFAULT_LOCALE=en
+#
+# Server
+#
+# Environment (prod or dev)
+# If prod, client build will be served by the server
+# If dev, backend server and front client are run separately
+ENVIRONMENT=dev
+# Server port
+PORT=8080
+# JWT secret
+JWT_SECRET=fgEP2a5pkgdABCwQWrdLERw4Z5sJ9Ekf
+# Cookie signing secret
+COOKIE_SECRET=3z9R8WDHySkqtN2HdeegcpDYW5pKz5ty
+# If cookies must be secured (HTTPS only)
+COOKIE_SECURE=true
+# If logs are enabled
+LOG_ENABLED=1
+# (optional) Directory in which logs are stored
+# If omitted logs will only appear in console
+LOG_DIR=/var/log/cthunline
+#
+# Database
+#
+# (optional) Disable Prisma telemetry
+# It's very much recommanded as we don't like telemetry bullshit in here
+CHECKPOINT_DISABLE=1
+# MongoDB connection URL
+MONGO_URL=mongodb://username:password@localhost:27017/database
+#
+# Assets
+#
+# Directory in which assets are uploaded (images and audio)
+ASSET_DIR=/path/to/assets
 ```
 
-## Production
+## Reverse proxy
 
-### Reverse proxy
+When deploying Cthunline in production, it's convenient to have a reverse proxy distributing the app.
 
-When deploying Freeday in production, it is recommended to have a single domain pointing to your server,
-and a reverse proxy distributing the app.
-
-Let's say you're using this configuration:
-
-```shell
-FRONT_PUBLIC_URL=https://freeday.domain.com/
-API_PUBLIC_URL=https://freeday.domain.com/
-```
-
-Then your Nginx reverse proxy configuration would look like this:
+Here is an example of a Nginx configuration that you can use to serve the app:
 
 ```nginx
 server {
   listen 80;
   listen [::]:80;
-
-  server_name freeday.domain.com;
-
+  server_name my.cthunline.app;
   return 301 https://$host$request_uri;
 }
 
 server {
-  listen 443 ssl;
-  listen [::]:443 ssl;
-
-  server_name freeday.domain.com;
-
+  listen 443 ssl http2;
+  server_name my.cthunline.app;
   ssl_certificate /path/to/ssl/fullchain.pem;
   ssl_certificate_key /path/to/ssl/privkey.pem;
-
-  # web client
   location / {
-    proxy_pass http://127.0.0.1:8888;
-    proxy_http_version 1.1;
-    proxy_set_header Host $host;
-    proxy_set_header Connection 'upgrade';
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_cache_bypass $http_upgrade;
-  }
-
-  # api
-  location ~ ^/api/ {
-    proxy_pass http://127.0.0.1:8787;
+    proxy_pass http://127.0.0.1:8080;
     proxy_http_version 1.1;
     proxy_set_header Host $host;
     proxy_set_header Connection 'upgrade';
@@ -172,59 +185,3 @@ server {
   }
 }
 ```
-
-## Localhost
-
-When running Freeday on localhost, some additional steps are required so everything works properly.
-
-### API configuration
-
-The front and API URLs must point on the correct localhost services, and CORS must be enabled.
-
-```shell
-FRONT_PUBLIC_URL=http://localhost:8788/
-API_PUBLIC_URL=http://localhost:8787/
-API_ENABLE_CORS=true
-```
-
-### Slack bot
-
-In a local environment, the Freeday URL will be something like `http://localhost:8788/`.
-The problem is that Slack API can't reach your Freeday instance through this URL.
-Therefore you need to setup some kind of proxy / tunnel and set the correct URL in the Slack app manifest so it ca communicates with your Freeday instance.
-
-Here we're gonna use [Ngrok](https://ngrok.com/).
-
-#### Running Ngrok
-
-Start a Ngrok tunnel targetting the API port (default is `8787`).
-
-```shell
-ngrok http 8787
-```
-
-Then get the tunnel `https` URL in the Ngrok console. It should look like this: `https://1234-12-34-123-12.ngrok.io`.
-
-#### Configuring Slack app
-
-Go in to the [Slack apps page](https://api.slack.com/apps) and edit your Freeday app.
-
-Put the Ngrok `https` link in the `oauth_config`, `event_subscriptions` and `interactivity` sections. In the `event_subscriptions` and `interactivity` sections, be sure to keep the `/api/slack/events` path. Values should look like the example below.
-
-```yaml
-# ...
-oauth_config:
-  redirect_urls:
-    - https://1234-12-34-123-12.ngrok.io/
-# ...
-settings:
-  event_subscriptions:
-    request_url: https://1234-12-34-123-12.ngrok.io/api/slack/events
-# ...
-  interactivity:
-    request_url: https://1234-12-34-123-12.ngrok.io/api/slack/events
-# ...
-```
-
-> Note: The `event_subscriptions` URL must be validated in Slack app configuration.
-> To activate the URL, Freeday must be running and listening to Slack API calls.
