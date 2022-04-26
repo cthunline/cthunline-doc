@@ -27,7 +27,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../schemas/auth.yaml#/LoginBody'
+          $ref: '../../schemas/auth.yaml#/AuthLoginBody'
   responses:
     200:
       content:

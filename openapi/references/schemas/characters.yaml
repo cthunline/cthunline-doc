@@ -1,0 +1,68 @@
+# Sessions
+
+# ----------------------------------- Endpoint returns
+
+Character:
+  allOf:
+    - $ref: './global.yaml#/DocumentId'
+    - $ref: '#/CharacterGameId'
+    - $ref: '#/CharacterUserId'
+    - $ref: '#/CharacterName'
+    - $ref: '#/CharacterData'
+    - $ref: './global.yaml#/CreateUpdateInfo'
+
+CharacterList:
+  type: 'object'
+  properties:
+    assets:
+      type: 'array'
+      items:
+        $ref: '#/Character'
+
+# ----------------------------------- Request bodies
+
+CharacterCreateBody:
+  allOf:
+    - $ref: '#/CharacterGameId'
+    - $ref: '#/CharacterName'
+    - $ref: '#/CharacterData'
+    - required:
+      - gameId
+      - name
+      - data
+
+CharacterEditBody:
+  allOf:
+    - $ref: '#/CharacterName'
+    - $ref: '#/CharacterData'
+
+# ----------------------------------- Fragments
+
+CharacterGameId:
+  type: 'object'
+  properties:
+    gameId:
+      type: 'string'
+      description: 'Game Id'
+
+CharacterUserId:
+  type: 'object'
+  properties:
+    userId:
+      type: 'string'
+      description: 'User Id'
+
+CharacterName:
+  type: 'object'
+  properties:
+    gameId:
+      type: 'string'
+      description: 'Name of the character'
+
+CharacterData:
+  type: 'object'
+  properties:
+    data:
+      oneOf:
+        - $ref: './games/callOfCthulhu.yaml#/CoCCharacter'
+        - $ref: './games/starWarsD6.yaml#/SWD6Character'

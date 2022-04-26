@@ -1,6 +1,6 @@
 # Authentication
 
-LoginBody:
+AuthLoginBody:
   type: 'object'
   properties:
     email:

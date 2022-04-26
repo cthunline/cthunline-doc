@@ -1,0 +1,94 @@
+# /api/users/{uuid}/characters/{uuid}
+
+get:
+  tags:
+    - 'Characters'
+  summary: 'Get a character'
+  description: ''
+  parameters:
+    - name: 'userId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/characters.yaml#/Character'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'
+
+post:
+  tags:
+    - 'Characters'
+  summary: 'Update a character'
+  description: ''
+  parameters:
+    - name: 'sessionId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/characters.yaml#/CharacterEditBody'
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/characters.yaml#/Character'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'
+
+delete:
+  tags:
+    - 'Characters'
+  summary: 'Delete a character'
+  description: ''
+  parameters:
+    - name: 'sessionId'
+      required: true
+      in: 'path'
+      schema:
+        type : 'string'
+        format: 'uuid'
+  responses:
+    200:
+      content:
+        application/json:
+          schema:
+            type: 'object'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
+    401:
+      $ref: '../../schemas/global.yaml#/Error'
+    403:
+      $ref: '../../schemas/global.yaml#/Error'
+    404:
+      $ref: '../../schemas/global.yaml#/Error'
+    500:
+      $ref: '../../schemas/global.yaml#/Error'
