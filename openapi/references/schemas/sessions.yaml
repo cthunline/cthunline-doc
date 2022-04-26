@@ -100,7 +100,7 @@ SessionSketch:
       description: 'List of sketch events'
       items:
         allOf:
-          $ref: '#/SketchEvent'
+          - $ref: '#/SketchEvent'
 
 SketchImage:
   type: 'object'
@@ -169,18 +169,18 @@ SketchEvent:
       description: 'Event image index'
     imageData:
       allOf:
-        nullable: true
-        description: 'Event image data'
-        $ref: '#/SketchImage'
+        - nullable: true
+        - description: 'Event image data'
+        - $ref: '#/SketchImage'
     tokenIndex:
       type: 'number'
       nullable: true
       description: 'Event token index'
     tokenData:
       allOf:
-        nullable: true
-        description: 'Event token data'
-        $ref: '#/SketchToken'
+        - nullable: true
+        - description: 'Event token data'
+        - $ref: '#/SketchToken'
     height:
       type: 'number'
       description: 'Image height'
