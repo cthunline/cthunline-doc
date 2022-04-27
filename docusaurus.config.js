@@ -57,14 +57,20 @@ const config = {
             items: [
                 {
                     type: 'doc',
-                    docId: 'introduction',
-                    position: 'left',
-                    label: 'Documentation'
+                    label: 'Documentation',
+                    docId: 'documentation/introduction',
+                    position: 'left'
                 },
                 {
                     position: 'left',
                     label: 'API',
                     to: '/api'
+                },
+                {
+                    type: 'doc',
+                    label: 'WebSockets',
+                    docId: 'websockets/about',
+                    position: 'left'
                 },
                 {
                     href: 'https://github.com/cthunline',
@@ -80,8 +86,8 @@ const config = {
                     title: 'Docs',
                     items: [
                         {
-                            label: 'Getting started',
-                            to: '/docs/getting-started'
+                            label: 'Documentation',
+                            to: '/docs/introduction'
                         },
                         {
                             label: 'API reference',

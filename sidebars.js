@@ -14,17 +14,21 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
     docs: [
-        'introduction',
-        'deployment',
-        'first-usage'
-        // {
-        //     type: 'category',
-        //     label: 'Some article',
-        //     collapsible: false,
-        //     items: [
-        //         'some-article'
-        //     ]
-        // }
+        'documentation/introduction',
+        {
+            type: 'category',
+            label: 'Deployment',
+            collapsible: false,
+            items: [
+                'documentation/deployment/deploy-app',
+                'documentation/deployment/deploy-database',
+                'documentation/deployment/deploy-prod'
+            ]
+        },
+        'documentation/first-usage'
+    ],
+    ws: [
+        'websockets/about'
     ]
 };
 

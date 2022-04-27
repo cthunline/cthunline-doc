@@ -26,6 +26,10 @@ For now there are a few games implemented:
 
 More to come...
 
+## Why is it named like that?
+
+Cthunline is a mix between Cthulhu and Online. I know, that's odd.
+
 ## What does it look like?
 
 Here are some screenshots:
