@@ -20,9 +20,8 @@ const sidebars = {
             label: 'Deployment',
             collapsible: false,
             items: [
-                'documentation/deployment/deploy-app',
-                'documentation/deployment/deploy-database',
-                'documentation/deployment/deploy-prod'
+                'documentation/deployment/deploy-docker',
+                'documentation/deployment/deploy-proxy'
             ]
         },
         'documentation/first-usage'

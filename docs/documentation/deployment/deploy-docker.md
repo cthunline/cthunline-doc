@@ -1,4 +1,4 @@
-# Deploy the app
+# Docker deployment
 
 Cthunline can be easily deployed using Docker images.
 
@@ -23,9 +23,18 @@ services:
       - cthunline_logs:/data/logs
     networks:
       - cthunline-network
-      - mongo-network
     ports:
       - 8080:8080
+  mariadb:
+    image: mariadb
+    restart: always
+    networks:
+      - cthunline-network
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: yes
+      MARIADB_USER: cthunline
+      MARIADB_PASSWORD: cthunline
+      MARIADB_DATABASE: cthunline
 
 volumes:
   cthunline_assets:
@@ -34,9 +43,6 @@ volumes:
 networks:
   cthunline-network:
     name: cthunline
-  mongo-network:
-    name: mongo
-    external: true
 ```
 
 ## .env
@@ -83,8 +89,8 @@ LOG_DIR=/var/log/cthunline
 # (optional) Disable Prisma telemetry
 # It's very much recommanded as we don't like telemetry bullshit in here
 CHECKPOINT_DISABLE=1
-# MongoDB connection URL
-MONGO_URL=mongodb://username:password@localhost:27017/database
+# MySQL connection URL
+DATABASE_URL=mysql://username:password@host:3306/database
 #
 # Assets
 #

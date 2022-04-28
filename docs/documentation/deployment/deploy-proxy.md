@@ -1,6 +1,6 @@
 # Reverse proxy
 
-When deploying Cthunline in production, it's convenient to have a reverse proxy distributing the app.
+When deploying Cthunline in production, it's convenient to put the app behind a reverse proxy.
 
 Here is an example of a Nginx configuration that you can use to serve the app:
 
