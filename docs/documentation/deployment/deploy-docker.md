@@ -83,6 +83,13 @@ LOG_ENABLED=1
 # (optional) Directory in which logs are stored
 # If omitted logs will only appear in console
 LOG_DIR=/var/log/cthunline
+# If server is behind a revese proxy
+REVERSE_PROXY=1
+# Rate limiter options (protects login and registration endpoints)
+# Window duration in minutes
+RL_WINDOW_DURATION=10
+# Maximum number of requests per window
+RL_MAX_REQUESTS=100
 #
 # Database
 #
@@ -96,4 +103,8 @@ DATABASE_URL=mysql://username:password@host:3306/database
 #
 # Directory in which assets are uploaded (images and audio)
 ASSET_DIR=/path/to/assets
+# Maximum upload size in Mb (total)
+ASSET_MAX_SIZE_MB=100
+# Maximum upload size per file in Mb
+ASSET_MAX_SIZE_MB_PER_FILE=20
 ```
