@@ -1,4 +1,4 @@
-# /api/users/{uuid}/assets/{uuid}
+# /api/users/{id}/assets/{id}
 
 get:
   tags:
@@ -10,14 +10,12 @@ get:
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
     - name: 'assetId'
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
   responses:
     200:
       content:
@@ -45,14 +43,12 @@ delete:
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
     - name: 'assetId'
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
   responses:
     200:
       content:

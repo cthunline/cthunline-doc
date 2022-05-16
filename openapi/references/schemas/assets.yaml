@@ -4,7 +4,7 @@
 
 Asset:
   allOf:
-    - $ref: './global.yaml#/DocumentId'
+    - $ref: './global.yaml#/Id'
     - $ref: '#/AssetData'
     - $ref: './global.yaml#/CreateUpdateInfo'
 
@@ -18,7 +18,7 @@ AssetList:
 
 Directory:
   allOf:
-    - $ref: './global.yaml#/DocumentId'
+    - $ref: './global.yaml#/Id'
     - $ref: '#/DirectoryName'
     - $ref: '#/DirectoryUserId'
     - $ref: '#/DirectoryParentId'
@@ -44,8 +44,7 @@ AssetUploadBody:
         format: 'binary'
         description: 'Uploaded file'
     directoryId:
-      type: 'string'
-      format: 'uuid'
+      type : 'number'
       description: 'Id of directory containing the assets'
   required:
     - assets
@@ -77,12 +76,10 @@ AssetData:
       type: 'string'
       description: 'Asset path'
     userId:
-      type: 'string'
-      format: 'uuid'
+      type : 'number'
       description: 'Id of user owning the asset'
     directoryId:
-      type: 'string'
-      format: 'uuid'
+      type : 'number'
       description: 'Id of directory containing the asset'
 
 DirectoryName:
@@ -96,14 +93,12 @@ DirectoryUserId:
   type: 'object'
   properties:
     userId:
-      type: 'string'
-      format: 'uuid'
+      type : 'number'
       description: 'Id of user owning the directory'
 
 DirectoryParentId:
   type: 'object'
   properties:
     parentId:
-      type: 'string'
-      format: 'uuid'
+      type : 'number'
       description: 'Id of parent directory'

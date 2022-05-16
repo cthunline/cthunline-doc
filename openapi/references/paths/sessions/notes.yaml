@@ -1,4 +1,4 @@
-# /api/sessions/{uuid}/notes
+# /api/sessions/{id}/notes
 
 get:
   tags:
@@ -10,8 +10,7 @@ get:
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
   responses:
     200:
       content:
@@ -37,8 +36,7 @@ post:
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
   requestBody:
     required: true
     content:

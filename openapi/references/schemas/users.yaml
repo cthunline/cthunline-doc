@@ -4,7 +4,7 @@
 
 User:
   allOf:
-    - $ref: './global.yaml#/DocumentId'
+    - $ref: './global.yaml#/Id'
     - $ref: '#/BaseData'
     - $ref: '#/MetaData'
     - $ref: './global.yaml#/CreateUpdateInfo'

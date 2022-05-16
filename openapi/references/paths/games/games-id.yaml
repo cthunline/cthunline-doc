@@ -1,4 +1,4 @@
-# /api/games/{uuid}
+# /api/games/{id}
 
 get:
   tags:

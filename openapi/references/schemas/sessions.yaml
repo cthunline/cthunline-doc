@@ -4,7 +4,7 @@
 
 Session:
   allOf:
-    - $ref: './global.yaml#/DocumentId'
+    - $ref: './global.yaml#/Id'
     - $ref: '#/SessionGameId'
     - $ref: '#/SessionMasterId'
     - $ref: '#/SessionName'
@@ -21,7 +21,7 @@ SessionList:
 
 Notes:
   allOf:
-    - $ref: './global.yaml#/DocumentId'
+    - $ref: './global.yaml#/Id'
     - $ref: '#/NotesText'
     - $ref: '#/NotesMetaData'
     - $ref: './global.yaml#/CreateUpdateInfo'
@@ -61,8 +61,7 @@ SessionMasterId:
   type: 'object'
   properties:
     gameId:
-      type: 'string'
-      format: 'uuid'
+      type : 'number'
       description: 'Id of user who is game master'
 
 SessionName:
@@ -75,32 +74,33 @@ SessionName:
 SessionSketch:
   type: 'object'
   properties:
-    displayed:
-      type: 'boolean'
-      description: 'Game Id'
-    paths:
-      type: 'array'
-      description: 'List of sketch drawing SVG paths'
-      items:
-        type: 'string'
-    images:
-      type: 'array'
-      description: 'List of sketch images'
-      items:
-        $ref: '#/SketchImage'
-        required:
-          - 
-    tokens:
-      type: 'array'
-      description: 'List of sketch tokens'
-      items:
-        $ref: '#/SketchToken'
-    events:
-      type: 'array'
-      description: 'List of sketch events'
-      items:
-        allOf:
-          - $ref: '#/SketchEvent'
+    sketch:
+      type: 'object'
+      properties:
+        displayed:
+          type: 'boolean'
+          description: 'Game Id'
+        paths:
+          type: 'array'
+          description: 'List of sketch drawing SVG paths'
+          items:
+            type: 'string'
+        images:
+          type: 'array'
+          description: 'List of sketch images'
+          items:
+            $ref: '#/SketchImage'
+        tokens:
+          type: 'array'
+          description: 'List of sketch tokens'
+          items:
+            $ref: '#/SketchToken'
+        events:
+          type: 'array'
+          description: 'List of sketch events'
+          items:
+            allOf:
+              - $ref: '#/SketchEvent'
 
 SketchImage:
   type: 'object'
@@ -139,8 +139,7 @@ SketchToken:
       description: 'Token assigned user'
       properties:
         id:
-          type: 'string'
-          format: 'uuid'
+          type : 'number'
           description: 'Token user Id'
         name:
           type: 'string'
@@ -204,10 +203,8 @@ NotesMetaData:
   type: 'object'
   properties:
     userId:
-      type: 'string'
-      format: 'uuid'
+      type : 'number'
       description: 'Notes user Id'
     sessionId:
-      type: 'string'
-      format: 'uuid'
+      type : 'number'
       description: 'Notes session Id'

@@ -4,7 +4,7 @@
 
 Character:
   allOf:
-    - $ref: './global.yaml#/DocumentId'
+    - $ref: './global.yaml#/Id'
     - $ref: '#/CharacterGameId'
     - $ref: '#/CharacterUserId'
     - $ref: '#/CharacterName'

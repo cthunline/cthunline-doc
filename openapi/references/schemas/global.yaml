@@ -1,9 +1,8 @@
-DocumentId:
+Id:
   type: 'object'
   properties:
     id:
-      type: 'string'
-      format: 'uuid'
+      type: 'number'
 
 CreateUpdateInfo:
   type: 'object'

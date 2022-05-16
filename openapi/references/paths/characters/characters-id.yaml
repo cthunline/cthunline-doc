@@ -1,4 +1,4 @@
-# /api/users/{uuid}/characters/{uuid}
+# /api/users/{id}/characters/{id}
 
 get:
   tags:
@@ -10,8 +10,7 @@ get:
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
   responses:
     200:
       content:
@@ -39,8 +38,7 @@ post:
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
   requestBody:
     required: true
     content:
@@ -74,8 +72,7 @@ delete:
       required: true
       in: 'path'
       schema:
-        type : 'string'
-        format: 'uuid'
+        type : 'number'
   responses:
     200:
       content:

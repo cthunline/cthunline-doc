@@ -1,49 +1,41 @@
-# /api/users/{id}/directories
+# /api/sketchs
 
 get:
   tags:
-    - 'Assets'
-  summary: 'Get all directories of a user'
+    - 'Sketchs'
+  summary: 'Get all sketchs belonging to the current user'
   description: ''
   responses:
     200:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/assets.yaml#/Directory'
+            $ref: '../../schemas/sketchs.yaml#/SketchList'
     401:
-      $ref: '../../schemas/global.yaml#/Error'
-    403:
-      $ref: '../../schemas/global.yaml#/Error'
-    404:
       $ref: '../../schemas/global.yaml#/Error'
     500:
       $ref: '../../schemas/global.yaml#/Error'
 
 post:
   tags:
-    - 'Assets'
-  summary: 'Create a directory'
+    - 'Sketchs'
+  summary: 'Save a sketch for the current user'
   description: ''
   requestBody:
     required: true
     content:
       application/json:
         schema:
-          $ref: '../../schemas/assets.yaml#/DirectoryCreateBody'
+          $ref: '../../schemas/sketchs.yaml#/SketchCreateBody'
   responses:
     200:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/assets.yaml#/Directory'
+            $ref: '../../schemas/sketchs.yaml#/Sketch'
     400:
       $ref: '../../schemas/global.yaml#/Error'
     401:
-      $ref: '../../schemas/global.yaml#/Error'
-    403:
-      $ref: '../../schemas/global.yaml#/Error'
-    404:
       $ref: '../../schemas/global.yaml#/Error'
     500:
       $ref: '../../schemas/global.yaml#/Error'
