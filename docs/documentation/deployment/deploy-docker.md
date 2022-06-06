@@ -4,7 +4,7 @@ Cthunline can be easily deployed using Docker images.
 
 You will find below an example of `docker-compose.yaml` file and its `.env` companion.
 
-Edit configuration as you wish then use `docker-compose up -d` to run the container.
+Edit configuration as you wish then use `docker-compose up -d` (or `docker compose up -d` for earlier versions) to run the container.
 
 ## docker-compose.yml
 
@@ -25,6 +25,8 @@ services:
       - cthunline-network
     ports:
       - 8080:8080
+      # if your container is served by a reverse proxy bind port to localhost only
+      # - 127.0.0.1:8080:8080
   mariadb:
     image: mariadb
     restart: always
