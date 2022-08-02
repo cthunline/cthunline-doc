@@ -71,15 +71,15 @@ DEFAULT_LOCALE=en
 # Environment (prod or dev)
 # If prod, client build will be served by the server
 # If dev, backend server and front client are run separately
-ENVIRONMENT=dev
+ENVIRONMENT=prod
 # Server port
 PORT=8080
 # JWT secret
-JWT_SECRET=fgEP2a5pkgdABCwQWrdLERw4Z5sJ9Ekf
+JWT_SECRET=abcdef1234567890
 # Cookie signing secret
-COOKIE_SECRET=3z9R8WDHySkqtN2HdeegcpDYW5pKz5ty
+COOKIE_SECRET=abcdef123456789
 # If cookies must be secured (HTTPS only)
-COOKIE_SECURE=true
+COOKIE_SECURE=1
 # If logs are enabled
 LOG_ENABLED=1
 # (optional) Directory in which logs are stored

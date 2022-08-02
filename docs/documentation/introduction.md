@@ -24,6 +24,10 @@ For now there are a few games implemented:
 
 🚀 Star Wars D6
 
+🐲 Dungeons & Dragons 5E
+
+🏴‍☠️️ 7th Sea
+
 More to come...
 
 ## Why is it named like that?
