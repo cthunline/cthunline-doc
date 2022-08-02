@@ -11,6 +11,7 @@
 	},
     "ignoreFiles": [
         "node_modules/**/*",
-        ".docusaurus/**/*"
+        ".docusaurus/**/*",
+        "build/**/*"
     ]
 }
