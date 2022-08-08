@@ -6,26 +6,6 @@ info:
 
 # API routes
 paths:
-  # Configuration
-  /api/configuration:
-    $ref: './references/paths/configuration/configuration.yaml'
-  # Authentication
-  /api/auth:
-    $ref: './references/paths/auth/auth.yaml'
-  # Users
-  /api/users:
-    $ref: './references/paths/users/users.yaml'
-  /api/users/{userId}:
-    $ref: './references/paths/users/users-id.yaml'
-  /api/register:
-    $ref: './references/paths/users/register.yaml'
-  /api/invitation:
-    $ref: './references/paths/users/invitation.yaml'
-  # Games
-  /api/games:
-    $ref: './references/paths/games/games.yaml'
-  /api/games/{gameId}:
-    $ref: './references/paths/games/games-id.yaml'
   # Assets
   /api/users/:userId/assets:
     $ref: './references/paths/assets/assets.yaml'
@@ -35,13 +15,48 @@ paths:
     $ref: './references/paths/assets/assets.yaml'
   /api/users/:userId/directories/:directoryId:
     $ref: './references/paths/assets/assets-id.yaml'
+  # Authentication
+  /api/auth:
+    $ref: './references/paths/auth/auth.yaml'
+  # Characters
+  /api/characters:
+    $ref: './references/paths/characters/characters.yaml'
+  /api/characters/:characterId:
+    $ref: './references/paths/characters/characters-id.yaml'
+  # Configuration
+  /api/configuration:
+    $ref: './references/paths/configuration/configuration.yaml'
+  # Games
+  /api/games:
+    $ref: './references/paths/games/games.yaml'
+  /api/games/{gameId}:
+    $ref: './references/paths/games/games-id.yaml'
+  # Notes
+  /api/sessions/:sessionId/notes:
+    $ref: './references/paths/notes/notes.yaml'
+  /api/notes/:noteId:
+    $ref: './references/paths/notes/notes-id.yaml'
+  /api/notes/:noteId/:action:
+    $ref: './references/paths/notes/notes-id-action.yaml'
   # Sessions
   /api/sessions:
     $ref: './references/paths/sessions/sessions.yaml'
   /api/sessions/:sessionId:
     $ref: './references/paths/sessions/sessions-id.yaml'
-  /api/sessions/:sessionId/notes:
-    $ref: './references/paths/sessions/notes.yaml'
+  # Sketchs
+  /api/sketchs:
+    $ref: './references/paths/sketchs/sketchs.yaml'
+  /api/sketchs/:sketchId:
+    $ref: './references/paths/sketchs/sketchs-id.yaml'
+  # Users
+  /api/users:
+    $ref: './references/paths/users/users.yaml'
+  /api/users/{userId}:
+    $ref: './references/paths/users/users-id.yaml'
+  /api/register:
+    $ref: './references/paths/users/register.yaml'
+  /api/invitation:
+    $ref: './references/paths/users/invitation.yaml'
 
 # Components
 components:

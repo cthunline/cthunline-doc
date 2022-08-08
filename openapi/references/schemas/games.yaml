@@ -5,7 +5,12 @@ Game:
   properties:
     id:
       type: 'string'
-      enum: ['callOfCthulhu','starWarsD6']
+      enum: [
+        'callOfCthulhu',
+        'dnd5',
+        'seventhSea',
+        'starWarsD6'
+      ]
     name:
       type: 'string'
       description: 'Game name'

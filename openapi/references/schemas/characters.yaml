@@ -65,4 +65,6 @@ CharacterData:
     data:
       oneOf:
         - $ref: './games/callOfCthulhu.yaml#/CoCCharacter'
+        - $ref: './games/dnd5.yaml#/DnD5Character'
+        - $ref: './games/seventhSea.yaml#/SeventhSeaCharacter'
         - $ref: './games/starWarsD6.yaml#/SWD6Character'

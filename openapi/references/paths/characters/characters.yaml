@@ -1,16 +1,17 @@
-# /api/users/{id}/characters
+# /api/characters
 
 get:
   tags:
     - 'Characters'
-  summary: 'Get all characters of a user'
+  summary: 'Get all characters'
   description: ''
   parameters:
-    - name: 'userId'
-      required: true
-      in: 'path'
+    - name: 'user'
+      required: false
+      in: 'query'
       schema:
         type : 'number'
+      description: 'Will return only characters belonging to the target user (must be the ID of the user)'
   responses:
     200:
       content:
@@ -30,13 +31,7 @@ post:
   tags:
     - 'Characters'
   summary: 'Create a character'
-  description: ''
-  parameters:
-    - name: 'userId'
-      required: true
-      in: 'path'
-      schema:
-        type : 'number'
+  description: 'Creates a character for the current authenticated user'
   requestBody:
     required: true
     content:

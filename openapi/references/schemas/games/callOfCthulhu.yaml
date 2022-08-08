@@ -29,21 +29,21 @@ CoCCharacter:
       additionalProperties: false
       properties:
         appearance:
-          $ref: '#/CoCCharacter/definitions/CoCCharacteristic'
+          $ref: "#/CoCCharacter/definitions/CoCCharacteristic"
         constitution:
-          $ref: '#/CoCCharacter/definitions/CoCCharacteristic'
+          $ref: "#/CoCCharacter/definitions/CoCCharacteristic"
         dexterity:
-          $ref: '#/CoCCharacter/definitions/CoCCharacteristic'
+          $ref: "#/CoCCharacter/definitions/CoCCharacteristic"
         education:
-          $ref: '#/CoCCharacter/definitions/CoCCharacteristic'
+          $ref: "#/CoCCharacter/definitions/CoCCharacteristic"
         intelligence:
-          $ref: '#/CoCCharacter/definitions/CoCCharacteristic'
+          $ref: "#/CoCCharacter/definitions/CoCCharacteristic"
         power:
-          $ref: '#/CoCCharacter/definitions/CoCCharacteristic'
+          $ref: "#/CoCCharacter/definitions/CoCCharacteristic"
         size:
-          $ref: '#/CoCCharacter/definitions/CoCCharacteristic'
+          $ref: "#/CoCCharacter/definitions/CoCCharacteristic"
         strength:
-          $ref: '#/CoCCharacter/definitions/CoCCharacteristic'
+          $ref: "#/CoCCharacter/definitions/CoCCharacteristic"
       type: object
     CoCCombat:
       additionalProperties: false
@@ -75,9 +75,9 @@ CoCCharacter:
       additionalProperties: false
       properties:
         hitPoints:
-          $ref: '#/CoCCharacter/definitions/CoCPoint'
+          $ref: "#/CoCCharacter/definitions/CoCPoint"
         magicPoints:
-          $ref: '#/CoCCharacter/definitions/CoCPoint'
+          $ref: "#/CoCCharacter/definitions/CoCPoint"
       type: object
     CoCSanity:
       additionalProperties: false
@@ -175,29 +175,29 @@ CoCCharacter:
       type: object
   properties:
     biography:
-      $ref: '#/CoCCharacter/definitions/CoCBiography'
+      $ref: "#/CoCCharacter/definitions/CoCBiography"
     characteristics:
-      $ref: '#/CoCCharacter/definitions/CoCCharacteristics'
+      $ref: "#/CoCCharacter/definitions/CoCCharacteristics"
     combat:
-      $ref: '#/CoCCharacter/definitions/CoCCombat'
+      $ref: "#/CoCCharacter/definitions/CoCCombat"
     luck:
-      $ref: '#/CoCCharacter/definitions/CoCLuck'
+      $ref: "#/CoCCharacter/definitions/CoCLuck"
     points:
-      $ref: '#/CoCCharacter/definitions/CoCPoints'
+      $ref: "#/CoCCharacter/definitions/CoCPoints"
     portrait:
       type: string
     sanity:
-      $ref: '#/CoCCharacter/definitions/CoCSanity'
+      $ref: "#/CoCCharacter/definitions/CoCSanity"
     skills:
       items:
-        $ref: '#/CoCCharacter/definitions/CoCSkill'
+        $ref: "#/CoCCharacter/definitions/CoCSkill"
       type: array
     status:
-      $ref: '#/CoCCharacter/definitions/CoCStatus'
+      $ref: "#/CoCCharacter/definitions/CoCStatus"
     story:
-      $ref: '#/CoCCharacter/definitions/CoCStory'
+      $ref: "#/CoCCharacter/definitions/CoCStory"
     weapons:
       items:
-        $ref: '#/CoCCharacter/definitions/CoCWeapon'
+        $ref: "#/CoCCharacter/definitions/CoCWeapon"
       type: array
   type: object

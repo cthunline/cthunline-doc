@@ -1,0 +1,285 @@
+DnD5Character:
+  additionalProperties: false
+  definitions:
+    DnD5Abilities:
+      additionalProperties: false
+      properties:
+        charisma:
+          $ref: "#/DnD5Character/definitions/DnD5Ability"
+        constitution:
+          $ref: "#/DnD5Character/definitions/DnD5Ability"
+        dexterity:
+          $ref: "#/DnD5Character/definitions/DnD5Ability"
+        intelligence:
+          $ref: "#/DnD5Character/definitions/DnD5Ability"
+        strength:
+          $ref: "#/DnD5Character/definitions/DnD5Ability"
+        wisdom:
+          $ref: "#/DnD5Character/definitions/DnD5Ability"
+      type: object
+    DnD5Ability:
+      additionalProperties: false
+      properties:
+        modifier:
+          type: number
+        score:
+          type: number
+      type: object
+    DnD5Attack:
+      additionalProperties: false
+      properties:
+        attackBonus:
+          type: number
+        damage:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+      type: object
+    DnD5Biography:
+      additionalProperties: false
+      properties:
+        alignment:
+          type: string
+        background:
+          type: string
+        class:
+          type: string
+        description:
+          type: string
+        level:
+          type: number
+        name:
+          type: string
+        race:
+          type: string
+      type: object
+    DnD5Combat:
+      additionalProperties: false
+      properties:
+        armorClass:
+          type: number
+        deathSaves:
+          $ref: "#/DnD5Character/definitions/DnD5DeathSaves"
+        hitDice:
+          type: string
+        hitPoints:
+          $ref: "#/DnD5Character/definitions/DnD5HitPoints"
+        initiative:
+          type: number
+        speed:
+          type: number
+      type: object
+    DnD5DeathSaves:
+      additionalProperties: false
+      properties:
+        failures:
+          type: number
+        successes:
+          type: number
+      type: object
+    DnD5Equipment:
+      additionalProperties: false
+      properties:
+        items:
+          type: string
+        money:
+          $ref: "#/DnD5Character/definitions/DnD5Money"
+        treasure:
+          type: string
+      type: object
+    DnD5Features:
+      additionalProperties: false
+      properties:
+        featuresAndTraits:
+          type: string
+        proficienciesAndLanguages:
+          type: string
+      type: object
+    DnD5HitPoints:
+      additionalProperties: false
+      properties:
+        current:
+          type: number
+        maximum:
+          type: number
+        temporary:
+          type: number
+      type: object
+    DnD5Money:
+      additionalProperties: false
+      properties:
+        copper:
+          type: number
+        electrum:
+          type: number
+        gold:
+          type: number
+        platinum:
+          type: number
+        silver:
+          type: number
+      type: object
+    DnD5SavingThrows:
+      additionalProperties: false
+      properties:
+        charisma:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        constitution:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        dexterity:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        intelligence:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        strength:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        wisdom:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+      type: object
+    DnD5Skill:
+      additionalProperties: false
+      properties:
+        modifier:
+          type: number
+        proficient:
+          type: boolean
+      type: object
+    DnD5Skills:
+      additionalProperties: false
+      properties:
+        acrobatics:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        animalHandling:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        arcana:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        athletics:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        deception:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        history:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        insight:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        intimidation:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        investigation:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        medicine:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        nature:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        perception:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        performance:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        persuasion:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        religion:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        sleightOfHand:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        stealth:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+        survival:
+          $ref: "#/DnD5Character/definitions/DnD5Skill"
+      type: object
+    DnD5Spell:
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        prepared:
+          type: boolean
+      type: object
+    DnD5SpellLevel:
+      additionalProperties: false
+      properties:
+        level:
+          type: number
+        slotsExpended:
+          type: number
+        slotsTotal:
+          type: number
+        spells:
+          items:
+            $ref: "#/DnD5Character/definitions/DnD5Spell"
+          type: array
+      type: object
+    DnD5Spellcasting:
+      additionalProperties: false
+      properties:
+        cantrips:
+          items:
+            type: string
+          type: array
+        class:
+          type: string
+        levels:
+          items:
+            $ref: "#/DnD5Character/definitions/DnD5SpellLevel"
+          type: array
+        spellAbility:
+          type: number
+        spellAttackBonus:
+          type: number
+        spellSaveDC:
+          type: number
+      type: object
+    DnD5Statistics:
+      additionalProperties: false
+      properties:
+        experiencePoints:
+          type: number
+        inspiration:
+          type: number
+        passiveWisdom:
+          type: number
+        proficiencyBonus:
+          type: number
+      type: object
+    DnD5Story:
+      additionalProperties: false
+      properties:
+        alliesAndOrganizations:
+          type: string
+        backstory:
+          type: string
+        bonds:
+          type: string
+        flaws:
+          type: string
+        ideals:
+          type: string
+        personalityTraits:
+          type: string
+      type: object
+  properties:
+    abilities:
+      $ref: "#/DnD5Character/definitions/DnD5Abilities"
+    attacks:
+      items:
+        $ref: "#/DnD5Character/definitions/DnD5Attack"
+      type: array
+    biography:
+      $ref: "#/DnD5Character/definitions/DnD5Biography"
+    combat:
+      $ref: "#/DnD5Character/definitions/DnD5Combat"
+    equipment:
+      $ref: "#/DnD5Character/definitions/DnD5Equipment"
+    features:
+      $ref: "#/DnD5Character/definitions/DnD5Features"
+    portrait:
+      type: string
+    savingThrows:
+      $ref: "#/DnD5Character/definitions/DnD5SavingThrows"
+    skills:
+      $ref: "#/DnD5Character/definitions/DnD5Skills"
+    spellcasting:
+      $ref: "#/DnD5Character/definitions/DnD5Spellcasting"
+    statistics:
+      $ref: "#/DnD5Character/definitions/DnD5Statistics"
+    story:
+      $ref: "#/DnD5Character/definitions/DnD5Story"
+  type: object

@@ -2,7 +2,7 @@
 
 get:
   tags:
-    - 'Sessions'
+    - 'Notes'
   summary: 'Get session notes'
   description: 'Get session notes for the current authenticated user'
   parameters:
@@ -16,7 +16,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/sessions.yaml#/Notes'
+            $ref: '../../schemas/notes.yaml#/Notes'
     400:
       $ref: '../../schemas/global.yaml#/Error'
     401:
@@ -28,9 +28,9 @@ get:
 
 post:
   tags:
-    - 'Sessions'
-  summary: 'Update session notes'
-  description: 'Update session notes for the current authenticated user'
+    - 'Notes'
+  summary: 'Create note in session'
+  description: 'Create a note in a session for the current authenticated user'
   parameters:
     - name: 'sessionId'
       required: true
@@ -42,13 +42,13 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../schemas/sessions.yaml#/NotesEditBody'
+          $ref: '../../schemas/notes.yaml#/NoteCreateBody'
   responses:
     200:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/sessions.yaml#/Notes'
+            $ref: '../../schemas/notes.yaml#/Note'
     400:
       $ref: '../../schemas/global.yaml#/Error'
     401:

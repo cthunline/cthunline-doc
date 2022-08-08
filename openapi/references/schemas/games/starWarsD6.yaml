@@ -1,30 +1,34 @@
 SWD6Character:
+  additionalProperties: false
   definitions:
-    SWD6Attribute:
+    SWD6AttributeData:
+      additionalProperties: false
       properties:
         skills:
           items:
-            $ref: '#/SWD6Character/definitions/SWD6Skill'
+            $ref: "#/SWD6Character/definitions/SWD6Skill"
           type: array
         value:
           type: string
       type: object
     SWD6Attributes:
+      additionalProperties: false
       properties:
         dexterity:
-          $ref: '#/SWD6Character/definitions/SWD6Attribute'
+          $ref: "#/SWD6Character/definitions/SWD6AttributeData"
         knowledge:
-          $ref: '#/SWD6Character/definitions/SWD6Attribute'
+          $ref: "#/SWD6Character/definitions/SWD6AttributeData"
         mechanical:
-          $ref: '#/SWD6Character/definitions/SWD6Attribute'
+          $ref: "#/SWD6Character/definitions/SWD6AttributeData"
         perception:
-          $ref: '#/SWD6Character/definitions/SWD6Attribute'
+          $ref: "#/SWD6Character/definitions/SWD6AttributeData"
         strength:
-          $ref: '#/SWD6Character/definitions/SWD6Attribute'
+          $ref: "#/SWD6Character/definitions/SWD6AttributeData"
         technical:
-          $ref: '#/SWD6Character/definitions/SWD6Attribute'
+          $ref: "#/SWD6Character/definitions/SWD6AttributeData"
       type: object
     SWD6Biography:
+      additionalProperties: false
       properties:
         age:
           type: number
@@ -42,6 +46,7 @@ SWD6Character:
           type: string
       type: object
     SWD6Skill:
+      additionalProperties: false
       properties:
         name:
           type: string
@@ -49,6 +54,7 @@ SWD6Character:
           type: string
       type: object
     SWD6Statistics:
+      additionalProperties: false
       properties:
         characterPoints:
           type: number
@@ -62,6 +68,7 @@ SWD6Character:
           type: number
       type: object
     SWD6Story:
+      additionalProperties: false
       properties:
         background:
           type: string
@@ -77,6 +84,7 @@ SWD6Character:
           type: string
       type: object
     SWD6Weapon:
+      additionalProperties: false
       properties:
         ammo:
           type: string
@@ -92,6 +100,7 @@ SWD6Character:
           type: string
       type: object
     SWD6WoundStatus:
+      additionalProperties: false
       properties:
         doublyWounded:
           type: boolean
@@ -110,19 +119,19 @@ SWD6Character:
         type: string
       type: array
     attributes:
-      $ref: '#/SWD6Character/definitions/SWD6Attributes'
+      $ref: "#/SWD6Character/definitions/SWD6Attributes"
     biography:
-      $ref: '#/SWD6Character/definitions/SWD6Biography'
+      $ref: "#/SWD6Character/definitions/SWD6Biography"
     portrait:
       type: string
     statistics:
-      $ref: '#/SWD6Character/definitions/SWD6Statistics'
+      $ref: "#/SWD6Character/definitions/SWD6Statistics"
     story:
-      $ref: '#/SWD6Character/definitions/SWD6Story'
+      $ref: "#/SWD6Character/definitions/SWD6Story"
     weapons:
       items:
-        $ref: '#/SWD6Character/definitions/SWD6Weapon'
+        $ref: "#/SWD6Character/definitions/SWD6Weapon"
       type: array
     woundStatus:
-      $ref: '#/SWD6Character/definitions/SWD6WoundStatus'
+      $ref: "#/SWD6Character/definitions/SWD6WoundStatus"
   type: object

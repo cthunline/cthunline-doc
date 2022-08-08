@@ -19,13 +19,6 @@ SessionList:
       items:
         $ref: '#/Session'
 
-Notes:
-  allOf:
-    - $ref: './global.yaml#/Id'
-    - $ref: '#/NotesText'
-    - $ref: '#/NotesMetaData'
-    - $ref: './global.yaml#/CreateUpdateInfo'
-
 # ----------------------------------- Request bodies
 
 SessionCreateBody:
@@ -41,12 +34,6 @@ SessionEditBody:
   allOf:
     - $ref: '#/SessionName'
     - $ref: '#/SessionSketch'
-
-NotesEditBody:
-  allOf:
-    - $ref: '#/NotesText'
-    - required:
-      - text
 
 # ----------------------------------- Fragments
 
@@ -191,20 +178,3 @@ SketchEvent:
       description: 'Image Y coordinate'
   required:
     - type
-
-NotesText:
-  type: 'object'
-  properties:
-    text:
-      type: 'string'
-      description: 'Notes text'
-
-NotesMetaData:
-  type: 'object'
-  properties:
-    userId:
-      type : 'number'
-      description: 'Notes user Id'
-    sessionId:
-      type : 'number'
-      description: 'Notes session Id'
