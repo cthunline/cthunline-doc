@@ -11,6 +11,13 @@ get:
       in: 'path'
       schema:
         type : 'number'
+    - name: 'include'
+      description: 'If true will include user data'
+      required: false
+      in: 'query'
+      schema:
+        type : 'string'
+        enum: ['true', 'false']
   responses:
     200:
       content:

@@ -7,13 +7,13 @@ info:
 # API routes
 paths:
   # Assets
-  /api/users/:userId/assets:
+  /api/assets:
     $ref: './references/paths/assets/assets.yaml'
-  /api/users/:userId/assets/:assetId:
+  /api/assets/:assetId:
     $ref: './references/paths/assets/assets-id.yaml'
-  /api/users/:userId/directories:
+  /api/directories:
     $ref: './references/paths/assets/assets.yaml'
-  /api/users/:userId/directories/:directoryId:
+  /api/directories/:directoryId:
     $ref: './references/paths/assets/assets-id.yaml'
   # Authentication
   /api/auth:

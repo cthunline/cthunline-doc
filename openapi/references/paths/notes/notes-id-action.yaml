@@ -4,7 +4,7 @@ put:
   tags:
     - 'Notes'
   summary: "Move a note's position"
-  description: 'Moves (up or down) the position of a note belonging to the current authenticated user'
+  description: 'Moves up or down a note in the note list (up decreases position, down increases position)'
   parameters:
     - name: 'noteId'
       required: true

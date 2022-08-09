@@ -1,10 +1,10 @@
-# /api/users/{id}/directories
+# /api/directories
 
 get:
   tags:
     - 'Assets'
-  summary: 'Get all directories of a user'
-  description: ''
+  summary: 'Get directories'
+  description: 'Gets all directories belonging to the authenticated user'
   responses:
     200:
       content:
@@ -24,7 +24,7 @@ post:
   tags:
     - 'Assets'
   summary: 'Create a directory'
-  description: ''
+  description: 'Creates a directory for the authenticated user'
   requestBody:
     required: true
     content:

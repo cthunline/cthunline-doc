@@ -1,10 +1,10 @@
-# /api/users
+# /api/directories/{id}
 
 get:
   tags:
     - 'Assets'
   summary: 'Get a directory'
-  description: ''
+  description: 'Gets a directory belonging to the authenticated user'
   responses:
     200:
       content:
@@ -26,7 +26,7 @@ post:
   tags:
     - 'Assets'
   summary: 'Update a directory'
-  description: ''
+  description: 'Updates a directory belonging to the authenticated user'
   requestBody:
     required: true
     content:
@@ -54,7 +54,7 @@ delete:
   tags:
     - 'Assets'
   summary: 'Delete a directory'
-  description: ''
+  description: 'Deletes a directory belonging to the authenticated user'
   responses:
     200:
       content:

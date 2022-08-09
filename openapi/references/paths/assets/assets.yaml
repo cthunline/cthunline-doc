@@ -1,16 +1,23 @@
-# /api/users/{id}/assets
+# /api/assets
 
 get:
   tags:
     - 'Assets'
-  summary: 'Get all assets of a user'
-  description: ''
+  summary: 'Get assets'
+  description: 'Gets all assets of the authenticated user'
   parameters:
     - name: 'userId'
       required: true
       in: 'path'
       schema:
         type : 'number'
+    - name: 'include'
+      description: 'If true will include directory data'
+      required: false
+      in: 'query'
+      schema:
+        type : 'string'
+        enum: ['true', 'false']
   responses:
     200:
       content:
@@ -30,7 +37,7 @@ post:
   tags:
     - 'Assets'
   summary: 'Upload assets'
-  description: 'Upload one or more assets'
+  description: 'Upload one or more assets for the authenticated user'
   parameters:
     - name: 'userId'
       required: true
