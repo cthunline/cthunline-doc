@@ -7,8 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: 'Cthunline',
-    tagline: 'Role playing game app',
-    url: 'https://doc.cthunline.com',
+    tagline: 'Role playing game web app',
+    url: 'https://cthunline.org',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
@@ -105,10 +105,6 @@ const config = {
                         {
                             label: 'Docker Hub',
                             href: 'https://hub.docker.com/repository/docker/cthunline'
-                        },
-                        {
-                            label: 'Official Website',
-                            href: 'https://cthunline.com/'
                         }
                     ]
                 }

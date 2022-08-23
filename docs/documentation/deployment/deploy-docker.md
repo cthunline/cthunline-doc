@@ -13,7 +13,7 @@ version: '3'
 
 services:
   cthunline:
-    image: cthunline
+    image: pitininja/cthunline
     container_name: cthunline
     restart: always
     env_file:
@@ -25,7 +25,7 @@ services:
       - cthunline-network
     ports:
       - 8080:8080
-      # if your container is served by a reverse proxy bind port to localhost only
+      # if your container is served by a reverse proxy then bind to localhost only
       # - 127.0.0.1:8080:8080
   mariadb:
     image: mariadb
