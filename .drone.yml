@@ -32,12 +32,14 @@ kind: pipeline
 type: docker
 name: cthunline-doc-cd
 
+# when to execute pipeline
 trigger:
   branch:
   - master
   event:
   - push
 
+# deploy on github pages
 steps:
 - name: deploy
   image: node
