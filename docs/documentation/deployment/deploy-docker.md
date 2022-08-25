@@ -4,7 +4,7 @@ Cthunline can be easily deployed using Docker images.
 
 You will find below an example of `docker-compose.yaml` file and its `.env` companion.
 
-Edit configuration as you wish then use `docker-compose up -d` (or `docker compose up -d` for earlier versions) to run the container.
+Edit configuration as you wish then use `docker compose up -d` (or `docker-compose up -d` for older versions) to run the container.
 
 ## docker-compose.yml
 

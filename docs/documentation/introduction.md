@@ -16,7 +16,7 @@ It's designed to provide useful tools to play RPG with your friends such as:
 
 📓 Notes (remember important stuff)
 
-## What games can I play with it?
+## What games can I play?
 
 For now there are a few games implemented:
 
