@@ -1,22 +1,24 @@
-# Cthunline documentation
+# Cthunline Documentation
 
-This website is built using [Docusaurus 2](https://docusaurus.io/).
+> Cthunline documentation website built with Docusaurus
+
+* [Useful resources](#useful-resources)
+* [Usage](#usage)
+* [Where to edit stuff](#where-to-edit-stuff)
+
+## Useful resources
+
+* [Official documentation](https://doc.cthunline.org/)
+* [Docker repository](https://hub.docker.com/r/cthunline/cthunline)
 
 ## Usage
-
-### Docker
-
-```shell
-# mount and run projet with docker
-docker-compose up
-```
 
 ### Development
 
 ```shell
 # install dependencies
 npm install
-# start app for development
+# run app for development
 npm start
 # run linters
 npm run lint
