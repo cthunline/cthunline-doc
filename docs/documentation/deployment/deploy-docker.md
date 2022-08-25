@@ -13,7 +13,7 @@ version: '3'
 
 services:
   cthunline:
-    image: pitininja/cthunline
+    image: cthunline/cthunline
     container_name: cthunline
     restart: always
     env_file:

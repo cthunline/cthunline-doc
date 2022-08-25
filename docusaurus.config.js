@@ -104,7 +104,7 @@ const config = {
                         },
                         {
                             label: 'Docker Hub',
-                            href: 'https://hub.docker.com/repository/docker/cthunline'
+                            href: 'https://hub.docker.com/r/cthunline/cthunline'
                         }
                     ]
                 }
