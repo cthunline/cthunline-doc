@@ -23,6 +23,8 @@ paths:
     $ref: './references/paths/characters/characters.yaml'
   /api/characters/:characterId:
     $ref: './references/paths/characters/characters-id.yaml'
+  /api/characters/:characterId/portrait:
+    $ref: './references/paths/characters/characters-id-portrait.yaml'
   # Configuration
   /api/configuration:
     $ref: './references/paths/configuration/configuration.yaml'

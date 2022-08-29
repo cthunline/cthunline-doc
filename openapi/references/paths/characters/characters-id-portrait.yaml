@@ -1,29 +1,33 @@
-# /api/assets
+# /api/characters/{id}/portrait
 
-get:
+post:
   tags:
-    - 'Assets'
-  summary: 'Get assets'
-  description: 'Gets all assets of the authenticated user'
+    - 'Characters'
+  summary: 'Upload a portrait'
+  description: 'Uploads a portrait for a character belonging to the current authenticated user'
   parameters:
-    - name: 'userId'
+    - name: 'characterId'
       required: true
       in: 'path'
       schema:
         type : 'number'
-    - name: 'include'
-      description: 'If true will include directory data'
-      required: false
-      in: 'query'
+  consumes:
+    - image/jpeg
+    - image/png
+    - image/svg+xml
+  requestBody:
+  content: 
+    multipart/form-data:
       schema:
-        type : 'string'
-        enum: ['true', 'false']
+        $ref: '../../schemas/characters.yaml#/PortraitUploadBody'
   responses:
     200:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/assets.yaml#/AssetList'
+            $ref: '../../schemas/characters.yaml#/Character'
+    400:
+      $ref: '../../schemas/global.yaml#/Error'
     401:
       $ref: '../../schemas/global.yaml#/Error'
     403:
@@ -33,27 +37,22 @@ get:
     500:
       $ref: '../../schemas/global.yaml#/Error'
 
-post:
+delete:
   tags:
-    - 'Assets'
-  summary: 'Upload assets'
-  description: 'Upload one or more assets for the authenticated user'
-  consumes:
-    - image/jpeg
-    - image/png
-    - image/svg+xml
-    - audio/mpeg
-  requestBody:
-  content: 
-    multipart/form-data:
+    - 'Characters'
+  summary: 'Delete the portrait of a character'
+  parameters:
+    - name: 'characterId'
+      required: true
+      in: 'path'
       schema:
-        $ref: '../../schemas/assets.yaml#/AssetUploadBody'
+        type : 'number'
   responses:
     200:
       content:
         application/json:
           schema:
-            $ref: '../../schemas/assets.yaml#/AssetList'
+            $ref: '../../schemas/characters.yaml#/Character'
     400:
       $ref: '../../schemas/global.yaml#/Error'
     401:

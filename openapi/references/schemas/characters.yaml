@@ -36,6 +36,16 @@ CharacterEditBody:
     - $ref: '#/CharacterName'
     - $ref: '#/CharacterData'
 
+PortraitUploadBody:
+  type: 'object'
+  properties:
+    portrait:
+      type: 'string'
+      format: 'binary'
+      description: 'Portrait file'
+  required:
+    - portrait
+
 # ----------------------------------- Fragments
 
 CharacterGameId:
