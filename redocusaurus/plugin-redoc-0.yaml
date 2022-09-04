@@ -43,12 +43,6 @@ paths:
         - Assets
       summary: Upload assets
       description: Upload one or more assets for the authenticated user
-      parameters:
-        - name: userId
-          required: true
-          in: path
-          schema:
-            type: number
       consumes:
         - image/jpeg
         - image/png
@@ -339,6 +333,71 @@ paths:
             application/json:
               schema:
                 type: object
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '403':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+  /api/characters/:characterId/portrait:
+    post:
+      tags:
+        - Characters
+      summary: Upload a portrait
+      description: >-
+        Uploads a portrait for a character belonging to the current
+        authenticated user
+      parameters:
+        - name: characterId
+          required: true
+          in: path
+          schema:
+            type: number
+      consumes:
+        - image/jpeg
+        - image/png
+        - image/svg+xml
+      requestBody: null
+      content:
+        multipart/form-data:
+          schema:
+            $ref: ../../schemas/characters.yaml#/PortraitUploadBody
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '403':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
+    delete:
+      tags:
+        - Characters
+      summary: Delete the portrait of a character
+      parameters:
+        - name: characterId
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
         '400':
           $ref: '#/components/responses/Error'
         '401':
