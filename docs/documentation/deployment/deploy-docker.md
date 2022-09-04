@@ -58,9 +58,9 @@ DEFAULT_ADMIN_NAME=admin
 DEFAULT_ADMIN_EMAIL=admin@admin.com
 DEFAULT_ADMIN_PASSWORD=cthunline
 # If registration is enabled
-REGISTRATION_ENABLED=1
+REGISTRATION_ENABLED=true
 # (optional) If registering must require an invitation code
-INVITATION_ENABLED=1
+INVITATION_ENABLED=true
 # Default theme (dark or light)
 DEFAULT_THEME=dark
 # Default language
@@ -79,14 +79,14 @@ JWT_SECRET=abcdef1234567890
 # Cookie signing secret
 COOKIE_SECRET=abcdef123456789
 # If cookies must be secured (HTTPS only)
-COOKIE_SECURE=1
+COOKIE_SECURE=true
 # If logs are enabled
-LOG_ENABLED=1
+LOG_ENABLED=true
 # (optional) Directory in which logs are stored
 # If omitted logs will only appear in console
 LOG_DIR=/var/log/cthunline
 # If server is behind a revese proxy
-REVERSE_PROXY=1
+REVERSE_PROXY=true
 # Rate limiter options (protects login and registration endpoints)
 # Window duration in minutes
 RL_WINDOW_DURATION=10
