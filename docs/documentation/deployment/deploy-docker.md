@@ -76,6 +76,8 @@ ENVIRONMENT=prod
 PORT=8080
 # JWT secret
 JWT_SECRET=abcdef1234567890
+# Secret used to encrypt data
+CRYPTO_SECRET=abcdef1234567890
 # Cookie signing secret
 COOKIE_SECRET=abcdef123456789
 # If cookies must be secured (HTTPS only)

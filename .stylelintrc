@@ -6,7 +6,6 @@
         "stylelint-config-standard"
     ],
     "rules": {
-        "indentation": 4,
 		"order/properties-alphabetical-order": true
 	},
     "ignoreFiles": [
