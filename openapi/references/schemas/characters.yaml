@@ -3,78 +3,78 @@
 # ----------------------------------- Endpoint returns
 
 Character:
-  allOf:
-    - $ref: './global.yaml#/Id'
-    - $ref: '#/CharacterGameId'
-    - $ref: '#/CharacterUserId'
-    - $ref: '#/CharacterName'
-    - $ref: '#/CharacterData'
-    - $ref: './global.yaml#/CreateUpdateInfo'
+    allOf:
+        - $ref: './global.yaml#/Id'
+        - $ref: '#/CharacterGameId'
+        - $ref: '#/CharacterUserId'
+        - $ref: '#/CharacterName'
+        - $ref: '#/CharacterData'
+        - $ref: './global.yaml#/CreateUpdateInfo'
 
 CharacterList:
-  type: 'object'
-  properties:
-    assets:
-      type: 'array'
-      items:
-        $ref: '#/Character'
+    type: 'object'
+    properties:
+        assets:
+            type: 'array'
+            items:
+                $ref: '#/Character'
 
 # ----------------------------------- Request bodies
 
 CharacterCreateBody:
-  allOf:
-    - $ref: '#/CharacterGameId'
-    - $ref: '#/CharacterName'
-    - $ref: '#/CharacterData'
-    - required:
-      - gameId
-      - name
-      - data
+    allOf:
+        - $ref: '#/CharacterGameId'
+        - $ref: '#/CharacterName'
+        - $ref: '#/CharacterData'
+        - required:
+              - gameId
+              - name
+              - data
 
 CharacterEditBody:
-  allOf:
-    - $ref: '#/CharacterName'
-    - $ref: '#/CharacterData'
+    allOf:
+        - $ref: '#/CharacterName'
+        - $ref: '#/CharacterData'
 
 PortraitUploadBody:
-  type: 'object'
-  properties:
-    portrait:
-      type: 'string'
-      format: 'binary'
-      description: 'Portrait file'
-  required:
-    - portrait
+    type: 'object'
+    properties:
+        portrait:
+            type: 'string'
+            format: 'binary'
+            description: 'Portrait file'
+    required:
+        - portrait
 
 # ----------------------------------- Fragments
 
 CharacterGameId:
-  type: 'object'
-  properties:
-    gameId:
-      type: 'string'
-      description: 'Game Id'
+    type: 'object'
+    properties:
+        gameId:
+            type: 'string'
+            description: 'Game Id'
 
 CharacterUserId:
-  type: 'object'
-  properties:
-    userId:
-      type: 'string'
-      description: 'User Id'
+    type: 'object'
+    properties:
+        userId:
+            type: 'string'
+            description: 'User Id'
 
 CharacterName:
-  type: 'object'
-  properties:
-    gameId:
-      type: 'string'
-      description: 'Name of the character'
+    type: 'object'
+    properties:
+        gameId:
+            type: 'string'
+            description: 'Name of the character'
 
 CharacterData:
-  type: 'object'
-  properties:
-    data:
-      oneOf:
-        - $ref: './games/callOfCthulhu.yaml#/CoCCharacter'
-        - $ref: './games/dnd5.yaml#/DnD5Character'
-        - $ref: './games/seventhSea.yaml#/SeventhSeaCharacter'
-        - $ref: './games/starWarsD6.yaml#/SWD6Character'
+    type: 'object'
+    properties:
+        data:
+            oneOf:
+                - $ref: './games/callOfCthulhu.yaml#/CoCCharacter'
+                - $ref: './games/dnd5.yaml#/DnD5Character'
+                - $ref: './games/seventhSea.yaml#/SeventhSeaCharacter'
+                - $ref: './games/starWarsD6.yaml#/SWD6Character'

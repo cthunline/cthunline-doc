@@ -1,16 +1,8 @@
 {
-    "plugins": [
-        "stylelint-order"
-	],
-    "extends": [
-        "stylelint-config-standard"
-    ],
+    "plugins": ["stylelint-order"],
+    "extends": ["stylelint-config-standard"],
     "rules": {
-		"order/properties-alphabetical-order": true
-	},
-    "ignoreFiles": [
-        "node_modules/**/*",
-        ".docusaurus/**/*",
-        "build/**/*"
-    ]
+        "order/properties-alphabetical-order": true
+    },
+    "ignoreFiles": ["node_modules/**/*", ".docusaurus/**/*", "build/**/*"]
 }

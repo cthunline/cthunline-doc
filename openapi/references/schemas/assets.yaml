@@ -3,102 +3,102 @@
 # ----------------------------------- Endpoint returns
 
 Asset:
-  allOf:
-    - $ref: './global.yaml#/Id'
-    - $ref: '#/AssetData'
-    - $ref: './global.yaml#/CreateUpdateInfo'
+    allOf:
+        - $ref: './global.yaml#/Id'
+        - $ref: '#/AssetData'
+        - $ref: './global.yaml#/CreateUpdateInfo'
 
 AssetList:
-  type: 'object'
-  properties:
-    assets:
-      type: 'array'
-      items:
-        $ref: '#/Asset'
+    type: 'object'
+    properties:
+        assets:
+            type: 'array'
+            items:
+                $ref: '#/Asset'
 
 Directory:
-  allOf:
-    - $ref: './global.yaml#/Id'
-    - $ref: '#/DirectoryName'
-    - $ref: '#/DirectoryUserId'
-    - $ref: '#/DirectoryParentId'
-    - $ref: './global.yaml#/CreateUpdateInfo'
+    allOf:
+        - $ref: './global.yaml#/Id'
+        - $ref: '#/DirectoryName'
+        - $ref: '#/DirectoryUserId'
+        - $ref: '#/DirectoryParentId'
+        - $ref: './global.yaml#/CreateUpdateInfo'
 
 DirectoryList:
-  type: 'object'
-  properties:
-    directories:
-      type: 'array'
-      items:
-        $ref: '#/Directory'
+    type: 'object'
+    properties:
+        directories:
+            type: 'array'
+            items:
+                $ref: '#/Directory'
 
 # ----------------------------------- Request bodies
 
 AssetUploadBody:
-  type: 'object'
-  properties:
-    assets:
-      type: 'array'
-      items:
-        type: 'string'
-        format: 'binary'
-        description: 'Uploaded file'
-    directoryId:
-      type : 'number'
-      description: 'Id of directory containing the assets'
-  required:
-    - assets
+    type: 'object'
+    properties:
+        assets:
+            type: 'array'
+            items:
+                type: 'string'
+                format: 'binary'
+                description: 'Uploaded file'
+        directoryId:
+            type: 'number'
+            description: 'Id of directory containing the assets'
+    required:
+        - assets
 
 DirectoryCreateBody:
-  allOf:
-    - $ref: '#/DirectoryName'
-    - $ref: '#/DirectoryParentId'
-    - required:
-      - name
+    allOf:
+        - $ref: '#/DirectoryName'
+        - $ref: '#/DirectoryParentId'
+        - required:
+              - name
 
 DirectoryEditBody:
-  allOf:
-    - $ref: '#/DirectoryName'
+    allOf:
+        - $ref: '#/DirectoryName'
 
 # ----------------------------------- Fragments
 
 AssetData:
-  type: 'object'
-  properties:
-    type:
-      type: 'string'
-      enum: ['image','audio']
-      description: 'Asset type'
-    name:
-      type: 'string'
-      description: 'Asset name'
-    path:
-      type: 'string'
-      description: 'Asset path'
-    userId:
-      type : 'number'
-      description: 'Id of user owning the asset'
-    directoryId:
-      type : 'number'
-      description: 'Id of directory containing the asset'
+    type: 'object'
+    properties:
+        type:
+            type: 'string'
+            enum: ['image', 'audio']
+            description: 'Asset type'
+        name:
+            type: 'string'
+            description: 'Asset name'
+        path:
+            type: 'string'
+            description: 'Asset path'
+        userId:
+            type: 'number'
+            description: 'Id of user owning the asset'
+        directoryId:
+            type: 'number'
+            description: 'Id of directory containing the asset'
 
 DirectoryName:
-  type: 'object'
-  properties:
-    name:
-      type: 'string'
-      description: 'Directory name'
+    type: 'object'
+    properties:
+        name:
+            type: 'string'
+            description: 'Directory name'
 
 DirectoryUserId:
-  type: 'object'
-  properties:
-    userId:
-      type : 'number'
-      description: 'Id of user owning the directory'
+    type: 'object'
+    properties:
+        userId:
+            type: 'number'
+            description: 'Id of user owning the directory'
 
 DirectoryParentId:
-  type: 'object'
-  properties:
-    parentId:
-      type : 'number'
-      description: 'Id of parent directory'
+    type: 'object'
+    properties:
+        parentId:
+            type: 'number'
+            description: 'Id of parent directory'

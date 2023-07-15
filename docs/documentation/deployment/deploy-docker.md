@@ -12,39 +12,39 @@ Edit configuration as you wish then use `docker compose up -d` (or `docker-compo
 version: '3'
 
 services:
-  cthunline:
-    image: cthunline/cthunline
-    container_name: cthunline
-    restart: always
-    env_file:
-      - .env
-    volumes:
-      - cthunline_assets:/data/assets
-      - cthunline_logs:/data/logs
-    networks:
-      - cthunline-network
-    ports:
-      - 8080:8080
-      # if your container is served by a reverse proxy then bind to localhost only
-      # - 127.0.0.1:8080:8080
-  mariadb:
-    image: mariadb
-    restart: always
-    networks:
-      - cthunline-network
-    environment:
-      MARIADB_RANDOM_ROOT_PASSWORD: yes
-      MARIADB_USER: cthunline
-      MARIADB_PASSWORD: cthunline
-      MARIADB_DATABASE: cthunline
+    cthunline:
+        image: cthunline/cthunline
+        container_name: cthunline
+        restart: always
+        env_file:
+            - .env
+        volumes:
+            - cthunline_assets:/data/assets
+            - cthunline_logs:/data/logs
+        networks:
+            - cthunline-network
+        ports:
+            - 8080:8080
+            # if your container is served by a reverse proxy then bind to localhost only
+            # - 127.0.0.1:8080:8080
+    mariadb:
+        image: mariadb
+        restart: always
+        networks:
+            - cthunline-network
+        environment:
+            MARIADB_RANDOM_ROOT_PASSWORD: yes
+            MARIADB_USER: cthunline
+            MARIADB_PASSWORD: cthunline
+            MARIADB_DATABASE: cthunline
 
 volumes:
-  cthunline_assets:
-  cthunline_logs:
+    cthunline_assets:
+    cthunline_logs:
 
 networks:
-  cthunline-network:
-    name: cthunline
+    cthunline-network:
+        name: cthunline
 ```
 
 ## .env

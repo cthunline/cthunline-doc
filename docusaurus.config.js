@@ -33,88 +33,90 @@ const config = {
         [
             'redocusaurus',
             {
-                specs: [{
-                    route: '/api/',
-                    spec: './openapi/api.yaml'
-                }]
+                specs: [
+                    {
+                        route: '/api/',
+                        spec: './openapi/api.yaml'
+                    }
+                ]
             }
         ]
     ],
 
     themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-        colorMode: {
-            defaultMode: 'dark'
-        },
-        navbar: {
-            title: 'Cthunline',
-            logo: {
-                alt: 'Cthunline logo',
-                src: 'img/logo.png'
+        /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+        ({
+            colorMode: {
+                defaultMode: 'dark'
             },
-            items: [
-                {
-                    type: 'doc',
-                    label: 'Documentation',
-                    docId: 'documentation/introduction',
-                    position: 'left'
+            navbar: {
+                title: 'Cthunline',
+                logo: {
+                    alt: 'Cthunline logo',
+                    src: 'img/logo.png'
                 },
-                {
-                    position: 'left',
-                    label: 'API',
-                    to: '/api'
-                },
-                {
-                    type: 'doc',
-                    label: 'WebSockets',
-                    docId: 'websockets/about',
-                    position: 'left'
-                },
-                {
-                    href: 'https://github.com/cthunline',
-                    label: 'GitHub',
-                    position: 'right'
-                }
-            ]
-        },
-        footer: {
-            style: 'dark',
-            links: [
-                {
-                    title: 'Docs',
-                    items: [
-                        {
-                            label: 'Documentation',
-                            to: '/docs/documentation/introduction'
-                        },
-                        {
-                            label: 'API reference',
-                            to: '/api'
-                        }
-                    ]
-                },
-                {
-                    title: 'More',
-                    items: [
-                        {
-                            label: 'GitHub',
-                            href: 'https://github.com/cthunline'
-                        },
-                        {
-                            label: 'Docker Hub',
-                            href: 'https://hub.docker.com/r/cthunline/cthunline'
-                        }
-                    ]
-                }
-            ],
-            copyright: 'Built with Docusaurus.'
-        },
-        prism: {
-            theme: themes.github,
-            darkTheme: themes.dracula
-        }
-    })
+                items: [
+                    {
+                        type: 'doc',
+                        label: 'Documentation',
+                        docId: 'documentation/introduction',
+                        position: 'left'
+                    },
+                    {
+                        position: 'left',
+                        label: 'API',
+                        to: '/api'
+                    },
+                    {
+                        type: 'doc',
+                        label: 'WebSockets',
+                        docId: 'websockets/about',
+                        position: 'left'
+                    },
+                    {
+                        href: 'https://github.com/cthunline',
+                        label: 'GitHub',
+                        position: 'right'
+                    }
+                ]
+            },
+            footer: {
+                style: 'dark',
+                links: [
+                    {
+                        title: 'Docs',
+                        items: [
+                            {
+                                label: 'Documentation',
+                                to: '/docs/documentation/introduction'
+                            },
+                            {
+                                label: 'API reference',
+                                to: '/api'
+                            }
+                        ]
+                    },
+                    {
+                        title: 'More',
+                        items: [
+                            {
+                                label: 'GitHub',
+                                href: 'https://github.com/cthunline'
+                            },
+                            {
+                                label: 'Docker Hub',
+                                href: 'https://hub.docker.com/r/cthunline/cthunline'
+                            }
+                        ]
+                    }
+                ],
+                copyright: 'Built with Docusaurus.'
+            },
+            prism: {
+                theme: themes.github,
+                darkTheme: themes.dracula
+            }
+        })
 };
 
 module.exports = config;

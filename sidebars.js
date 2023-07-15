@@ -26,9 +26,7 @@ const sidebars = {
         },
         'documentation/first-usage'
     ],
-    ws: [
-        'websockets/about'
-    ]
+    ws: ['websockets/about']
 };
 
 module.exports = sidebars;

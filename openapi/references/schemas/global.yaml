@@ -1,29 +1,29 @@
 Id:
-  type: 'object'
-  properties:
-    id:
-      type: 'number'
+    type: 'object'
+    properties:
+        id:
+            type: 'number'
 
 CreateUpdateInfo:
-  type: 'object'
-  properties:
-    createdAt:
-      type: 'string'
-      format: 'date-time'
-      description: 'Creation date'
-    updatedAt:
-      type: 'string'
-      format: 'date-time'
-      description: 'Last update date'
+    type: 'object'
+    properties:
+        createdAt:
+            type: 'string'
+            format: 'date-time'
+            description: 'Creation date'
+        updatedAt:
+            type: 'string'
+            format: 'date-time'
+            description: 'Last update date'
 
 Error:
-  type: 'object'
-  properties:
-    error:
-      type: 'string'
-      description: 'Error message'
-    data:
-      type: 'array'
-      description: 'Error data'
-      items:
-        type: 'object'
+    type: 'object'
+    properties:
+        error:
+            type: 'string'
+            description: 'Error message'
+        data:
+            type: 'array'
+            description: 'Error data'
+            items:
+                type: 'object'

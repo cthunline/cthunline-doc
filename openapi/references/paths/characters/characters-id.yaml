@@ -1,91 +1,91 @@
 # /api/characters/{id}
 
 get:
-  tags:
-    - 'Characters'
-  summary: 'Get a character'
-  description: ''
-  parameters:
-    - name: 'characterId'
-      required: true
-      in: 'path'
-      schema:
-        type : 'number'
-  responses:
-    200:
-      content:
-        application/json:
+    tags:
+        - 'Characters'
+    summary: 'Get a character'
+    description: ''
+    parameters:
+        - name: 'characterId'
+          required: true
+          in: 'path'
           schema:
-            $ref: '../../schemas/characters.yaml#/Character'
-    400:
-      $ref: '../../schemas/global.yaml#/Error'
-    401:
-      $ref: '../../schemas/global.yaml#/Error'
-    403:
-      $ref: '../../schemas/global.yaml#/Error'
-    404:
-      $ref: '../../schemas/global.yaml#/Error'
-    500:
-      $ref: '../../schemas/global.yaml#/Error'
+              type: 'number'
+    responses:
+        200:
+            content:
+                application/json:
+                    schema:
+                        $ref: '../../schemas/characters.yaml#/Character'
+        400:
+            $ref: '../../schemas/global.yaml#/Error'
+        401:
+            $ref: '../../schemas/global.yaml#/Error'
+        403:
+            $ref: '../../schemas/global.yaml#/Error'
+        404:
+            $ref: '../../schemas/global.yaml#/Error'
+        500:
+            $ref: '../../schemas/global.yaml#/Error'
 
 post:
-  tags:
-    - 'Characters'
-  summary: 'Update a character'
-  description: 'Updates a character belonging to the current authenticated user'
-  parameters:
-    - name: 'characterId'
-      required: true
-      in: 'path'
-      schema:
-        type : 'number'
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          $ref: '../../schemas/characters.yaml#/CharacterEditBody'
-  responses:
-    200:
-      content:
-        application/json:
+    tags:
+        - 'Characters'
+    summary: 'Update a character'
+    description: 'Updates a character belonging to the current authenticated user'
+    parameters:
+        - name: 'characterId'
+          required: true
+          in: 'path'
           schema:
-            $ref: '../../schemas/characters.yaml#/Character'
-    400:
-      $ref: '../../schemas/global.yaml#/Error'
-    401:
-      $ref: '../../schemas/global.yaml#/Error'
-    403:
-      $ref: '../../schemas/global.yaml#/Error'
-    404:
-      $ref: '../../schemas/global.yaml#/Error'
-    500:
-      $ref: '../../schemas/global.yaml#/Error'
+              type: 'number'
+    requestBody:
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: '../../schemas/characters.yaml#/CharacterEditBody'
+    responses:
+        200:
+            content:
+                application/json:
+                    schema:
+                        $ref: '../../schemas/characters.yaml#/Character'
+        400:
+            $ref: '../../schemas/global.yaml#/Error'
+        401:
+            $ref: '../../schemas/global.yaml#/Error'
+        403:
+            $ref: '../../schemas/global.yaml#/Error'
+        404:
+            $ref: '../../schemas/global.yaml#/Error'
+        500:
+            $ref: '../../schemas/global.yaml#/Error'
 
 delete:
-  tags:
-    - 'Characters'
-  summary: 'Delete a character'
-  description: 'Deletes a character belonging to the current authenticated user'
-  parameters:
-    - name: 'characterId'
-      required: true
-      in: 'path'
-      schema:
-        type : 'number'
-  responses:
-    200:
-      content:
-        application/json:
+    tags:
+        - 'Characters'
+    summary: 'Delete a character'
+    description: 'Deletes a character belonging to the current authenticated user'
+    parameters:
+        - name: 'characterId'
+          required: true
+          in: 'path'
           schema:
-            type: 'object'
-    400:
-      $ref: '../../schemas/global.yaml#/Error'
-    401:
-      $ref: '../../schemas/global.yaml#/Error'
-    403:
-      $ref: '../../schemas/global.yaml#/Error'
-    404:
-      $ref: '../../schemas/global.yaml#/Error'
-    500:
-      $ref: '../../schemas/global.yaml#/Error'
+              type: 'number'
+    responses:
+        200:
+            content:
+                application/json:
+                    schema:
+                        type: 'object'
+        400:
+            $ref: '../../schemas/global.yaml#/Error'
+        401:
+            $ref: '../../schemas/global.yaml#/Error'
+        403:
+            $ref: '../../schemas/global.yaml#/Error'
+        404:
+            $ref: '../../schemas/global.yaml#/Error'
+        500:
+            $ref: '../../schemas/global.yaml#/Error'

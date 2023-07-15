@@ -3,44 +3,44 @@
 # ----------------------------------- Endpoint returns
 
 Sketch:
-  allOf:
-    - $ref: './global.yaml#/Id'
-    - $ref: '#/SketchUserId'
-    - $ref: '#/SketchName'
-    - $ref: './sessions.yaml#/SessionSketch'
-    - $ref: './global.yaml#/CreateUpdateInfo'
+    allOf:
+        - $ref: './global.yaml#/Id'
+        - $ref: '#/SketchUserId'
+        - $ref: '#/SketchName'
+        - $ref: './sessions.yaml#/SessionSketch'
+        - $ref: './global.yaml#/CreateUpdateInfo'
 
 SketchList:
-  type: 'object'
-  properties:
-    assets:
-      type: 'array'
-      items:
-        $ref: '#/Sketch'
+    type: 'object'
+    properties:
+        assets:
+            type: 'array'
+            items:
+                $ref: '#/Sketch'
 
 # ----------------------------------- Request bodies
 
 SketchCreateBody:
-  allOf:
-    - $ref: '#/SketchUserId'
-    - $ref: '#/SketchName'
-    - $ref: './sessions.yaml#/SessionSketch'
-    - required:
-      - name
-      - sketch
+    allOf:
+        - $ref: '#/SketchUserId'
+        - $ref: '#/SketchName'
+        - $ref: './sessions.yaml#/SessionSketch'
+        - required:
+              - name
+              - sketch
 
 # ----------------------------------- Fragments
 
 SketchUserId:
-  type: 'object'
-  properties:
-    userId:
-      type: 'string'
-      description: 'User Id'
+    type: 'object'
+    properties:
+        userId:
+            type: 'string'
+            description: 'User Id'
 
 SketchName:
-  type: 'object'
-  properties:
-    name:
-      type: 'string'
-      description: 'Session name'
+    type: 'object'
+    properties:
+        name:
+            type: 'string'
+            description: 'Session name'

@@ -1,65 +1,65 @@
 # /api/characters/{id}/portrait
 
 post:
-  tags:
-    - 'Characters'
-  summary: 'Upload a portrait'
-  description: 'Uploads a portrait for a character belonging to the current authenticated user'
-  parameters:
-    - name: 'characterId'
-      required: true
-      in: 'path'
-      schema:
-        type : 'number'
-  consumes:
-    - image/jpeg
-    - image/png
-    - image/svg+xml
-  requestBody:
-  content: 
-    multipart/form-data:
-      schema:
-        $ref: '../../schemas/characters.yaml#/PortraitUploadBody'
-  responses:
-    200:
-      content:
-        application/json:
+    tags:
+        - 'Characters'
+    summary: 'Upload a portrait'
+    description: 'Uploads a portrait for a character belonging to the current authenticated user'
+    parameters:
+        - name: 'characterId'
+          required: true
+          in: 'path'
           schema:
-            $ref: '../../schemas/characters.yaml#/Character'
-    400:
-      $ref: '../../schemas/global.yaml#/Error'
-    401:
-      $ref: '../../schemas/global.yaml#/Error'
-    403:
-      $ref: '../../schemas/global.yaml#/Error'
-    404:
-      $ref: '../../schemas/global.yaml#/Error'
-    500:
-      $ref: '../../schemas/global.yaml#/Error'
+              type: 'number'
+    consumes:
+        - image/jpeg
+        - image/png
+        - image/svg+xml
+    requestBody:
+    content:
+        multipart/form-data:
+            schema:
+                $ref: '../../schemas/characters.yaml#/PortraitUploadBody'
+    responses:
+        200:
+            content:
+                application/json:
+                    schema:
+                        $ref: '../../schemas/characters.yaml#/Character'
+        400:
+            $ref: '../../schemas/global.yaml#/Error'
+        401:
+            $ref: '../../schemas/global.yaml#/Error'
+        403:
+            $ref: '../../schemas/global.yaml#/Error'
+        404:
+            $ref: '../../schemas/global.yaml#/Error'
+        500:
+            $ref: '../../schemas/global.yaml#/Error'
 
 delete:
-  tags:
-    - 'Characters'
-  summary: 'Delete the portrait of a character'
-  parameters:
-    - name: 'characterId'
-      required: true
-      in: 'path'
-      schema:
-        type : 'number'
-  responses:
-    200:
-      content:
-        application/json:
+    tags:
+        - 'Characters'
+    summary: 'Delete the portrait of a character'
+    parameters:
+        - name: 'characterId'
+          required: true
+          in: 'path'
           schema:
-            $ref: '../../schemas/characters.yaml#/Character'
-    400:
-      $ref: '../../schemas/global.yaml#/Error'
-    401:
-      $ref: '../../schemas/global.yaml#/Error'
-    403:
-      $ref: '../../schemas/global.yaml#/Error'
-    404:
-      $ref: '../../schemas/global.yaml#/Error'
-    500:
-      $ref: '../../schemas/global.yaml#/Error'
+              type: 'number'
+    responses:
+        200:
+            content:
+                application/json:
+                    schema:
+                        $ref: '../../schemas/characters.yaml#/Character'
+        400:
+            $ref: '../../schemas/global.yaml#/Error'
+        401:
+            $ref: '../../schemas/global.yaml#/Error'
+        403:
+            $ref: '../../schemas/global.yaml#/Error'
+        404:
+            $ref: '../../schemas/global.yaml#/Error'
+        500:
+            $ref: '../../schemas/global.yaml#/Error'

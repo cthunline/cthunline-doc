@@ -1,16 +1,16 @@
 # /api/configuration
 
 get:
-  tags:
-    - 'Configuration'
-  summary: 'Get public configuration'
-  description: 'Public configuration contains useful information about the instance'
-  security: []
-  responses:
-    200:
-      content:
-        application/json:
-          schema:
-            $ref: '../../schemas/configuration.yaml#/Configuration'
-    500:
-      $ref: '../../schemas/global.yaml#/Error'
+    tags:
+        - 'Configuration'
+    summary: 'Get public configuration'
+    description: 'Public configuration contains useful information about the instance'
+    security: []
+    responses:
+        200:
+            content:
+                application/json:
+                    schema:
+                        $ref: '../../schemas/configuration.yaml#/Configuration'
+        500:
+            $ref: '../../schemas/global.yaml#/Error'
