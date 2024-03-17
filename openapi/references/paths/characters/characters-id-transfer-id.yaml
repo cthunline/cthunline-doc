@@ -1,0 +1,35 @@
+# /api/characters/{id}/transfer/{id}
+
+put:
+    tags:
+        - 'Characters'
+    summary: 'Transfer the character to another user'
+    parameters:
+        - name: 'characterId'
+          required: true
+          in: 'path'
+          schema:
+              type: 'number'
+        - name: 'userId'
+          required: true
+          in: 'path'
+          schema:
+              type: 'number'
+    responses:
+        200:
+            content:
+                application/json:
+                    schema:
+                        type: 'object'
+        400:
+            $ref: '../../schemas/global.yaml#/Error'
+        401:
+            $ref: '../../schemas/global.yaml#/Error'
+        403:
+            $ref: '../../schemas/global.yaml#/Error'
+        404:
+            $ref: '../../schemas/global.yaml#/Error'
+        409:
+            $ref: '../../schemas/global.yaml#/Error'
+        500:
+            $ref: '../../schemas/global.yaml#/Error'

@@ -18,7 +18,7 @@ It's designed to provide useful tools to play RPG with your friends such as:
 
 ## What games can I play?
 
-For now there are a few games implemented:
+These are the games implemented right now:
 
 🐙 Call of Cthulhu (7th edition)
 
@@ -28,7 +28,7 @@ For now there are a few games implemented:
 
 🏴‍☠️️ 7th Sea (2nd edition)
 
-More to come...
+🗡️ Warhammer Fantasy (4th edition)
 
 ## Why is it named like that?
 

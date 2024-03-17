@@ -25,6 +25,8 @@ paths:
         $ref: './references/paths/characters/characters-id.yaml'
     /api/characters/:characterId/portrait:
         $ref: './references/paths/characters/characters-id-portrait.yaml'
+    /api/characters/:characterId/transfer/:userId:
+        $ref: './references/paths/characters/characters-id-transfer-id.yaml'
     # Configuration
     /api/configuration:
         $ref: './references/paths/configuration/configuration.yaml'
