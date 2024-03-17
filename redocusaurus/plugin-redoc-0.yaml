@@ -408,6 +408,40 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+  /api/characters/:characterId/transfer/:userId:
+    put:
+      tags:
+        - Characters
+      summary: Transfer the character to another user
+      parameters:
+        - name: characterId
+          required: true
+          in: path
+          schema:
+            type: number
+        - name: userId
+          required: true
+          in: path
+          schema:
+            type: number
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '403':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '409':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
   /api/configuration:
     get:
       tags:
