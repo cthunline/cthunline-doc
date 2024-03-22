@@ -34,9 +34,14 @@ services:
             - cthunline-network
         environment:
             MARIADB_RANDOM_ROOT_PASSWORD: yes
-            MARIADB_USER: cthunline
-            MARIADB_PASSWORD: cthunline
-            MARIADB_DATABASE: cthunline
+            MARIADB_USER: cthunlineusername
+            MARIADB_PASSWORD: cthunlinepassword
+            MARIADB_DATABASE: cthunlinedatabase
+    keydb:
+        image: eqalpha/keydb
+        restart: always
+        networks:
+            - cthunline-network
 
 volumes:
     cthunline_assets:
@@ -49,7 +54,7 @@ networks:
 
 ## .env
 
-```shell
+```bash
 #
 # App
 #
@@ -75,11 +80,11 @@ ENVIRONMENT=prod
 # Server port
 PORT=8080
 # JWT secret
-JWT_SECRET=abcdef1234567890
+JWT_SECRET=abcdef1234567890abcdef1234567890
 # Secret used to encrypt data
-CRYPTO_SECRET=abcdef1234567890
+CRYPTO_SECRET=abcdef1234567890abcdef1234567890
 # Cookie signing secret
-COOKIE_SECRET=abcdef123456789
+COOKIE_SECRET=abcdef123456789abcdef123456789
 # If cookies must be secured (HTTPS only)
 COOKIE_SECURE=true
 # If logs are enabled
@@ -101,7 +106,18 @@ RL_MAX_REQUESTS=100
 # It's very much recommanded as we don't like telemetry bullshit in here
 CHECKPOINT_DISABLE=1
 # MySQL connection URL
-DATABASE_URL=mysql://username:password@host:3306/database
+DATABASE_URL=mysql://cthunlineusername:cthunlinepassword@mariadb:3306/cthunlinedatabase
+##
+## Cache (KeyDB is recommanded but Redis should also work)
+##
+# KeyDB/Redis server host
+CACHE_HOST=keydb
+# KeyDB/Redis server port
+CACHE_PORT=6379
+# KeyDB/Redis database name (integer)
+CACHE_DATABASE=0
+# KeyDB/Redis password (optional)
+#CACHE_PASSWORD=abc123
 #
 # Assets
 #
