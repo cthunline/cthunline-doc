@@ -27,18 +27,18 @@ services:
             - 8080:8080
             # if your container is served by a reverse proxy then bind to localhost only
             # - 127.0.0.1:8080:8080
-    mariadb:
-        image: mariadb
+    postgresql:
+        image: postgres
+        container_name: postgresql
         restart: always
         networks:
             - cthunline-network
         environment:
-            MARIADB_RANDOM_ROOT_PASSWORD: yes
-            MARIADB_USER: cthunlineusername
-            MARIADB_PASSWORD: cthunlinepassword
-            MARIADB_DATABASE: cthunlinedatabase
+            POSTGRES_USER: username
+            POSTGRES_PASSWORD: password
     keydb:
         image: eqalpha/keydb
+        container_name: keydb
         restart: always
         networks:
             - cthunline-network
@@ -105,8 +105,8 @@ RL_MAX_REQUESTS=100
 # (optional) Disable Prisma telemetry
 # It's very much recommanded as we don't like telemetry bullshit in here
 CHECKPOINT_DISABLE=1
-# MySQL connection URL
-DATABASE_URL=mysql://cthunlineusername:cthunlinepassword@mariadb:3306/cthunlinedatabase
+# PostgreSQL connection URL
+DATABASE_URL=postgresql://username:password@postgresql:5432/database
 ##
 ## Cache (KeyDB is recommanded but Redis should also work)
 ##
