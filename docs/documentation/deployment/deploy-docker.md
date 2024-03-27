@@ -33,6 +33,8 @@ services:
         restart: always
         networks:
             - cthunline-network
+        volumes:
+            - postgresql_data:/var/lib/postgresql/data
         environment:
             POSTGRES_USER: username
             POSTGRES_PASSWORD: password
