@@ -62,32 +62,35 @@ SessionSketch:
     type: 'object'
     properties:
         sketch:
-            type: 'object'
-            properties:
-                displayed:
-                    type: 'boolean'
-                    description: 'Game Id'
-                paths:
-                    type: 'array'
-                    description: 'List of sketch drawing SVG paths'
-                    items:
-                        type: 'string'
-                images:
-                    type: 'array'
-                    description: 'List of sketch images'
-                    items:
-                        $ref: '#/SketchImage'
-                tokens:
-                    type: 'array'
-                    description: 'List of sketch tokens'
-                    items:
-                        $ref: '#/SketchToken'
-                events:
-                    type: 'array'
-                    description: 'List of sketch events'
-                    items:
-                        allOf:
-                            - $ref: '#/SketchEvent'
+            $ref: '#/SessionSketchData'
+
+SessionSketchData:
+    type: 'object'
+    properties:
+        displayed:
+            type: 'boolean'
+            description: 'Game Id'
+        paths:
+            type: 'array'
+            description: 'List of sketch drawing SVG paths'
+            items:
+                type: 'string'
+        images:
+            type: 'array'
+            description: 'List of sketch images'
+            items:
+                $ref: '#/SketchImage'
+        tokens:
+            type: 'array'
+            description: 'List of sketch tokens'
+            items:
+                $ref: '#/SketchToken'
+        events:
+            type: 'array'
+            description: 'List of sketch events'
+            items:
+                allOf:
+                    - $ref: '#/SketchEvent'
 
 SketchImage:
     type: 'object'

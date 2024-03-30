@@ -26,6 +26,38 @@ get:
         500:
             $ref: '../../schemas/global.yaml#/Error'
 
+post:
+    tags:
+        - 'Sketchs'
+    summary: 'Update a sketch belonging to the current user'
+    description: ''
+    parameters:
+        - name: 'sketchId'
+          required: true
+          in: 'path'
+          schema:
+              type: 'number'
+    requestBody:
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: '../../schemas/sketchs.yaml#/SketchEditBody'
+    responses:
+        200:
+            content:
+                application/json:
+                    schema:
+                        $ref: '../../schemas/sketchs.yaml#/Sketch'
+        400:
+            $ref: '../../schemas/global.yaml#/Error'
+        401:
+            $ref: '../../schemas/global.yaml#/Error'
+        404:
+            $ref: '../../schemas/global.yaml#/Error'
+        500:
+            $ref: '../../schemas/global.yaml#/Error'
+
 delete:
     tags:
         - 'Sketchs'

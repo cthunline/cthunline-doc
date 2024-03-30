@@ -22,12 +22,21 @@ SketchList:
 
 SketchCreateBody:
     allOf:
-        - $ref: '#/SketchUserId'
         - $ref: '#/SketchName'
-        - $ref: './sessions.yaml#/SessionSketch'
+        - type: 'object'
+          properties:
+              data:
+                  $ref: './sessions.yaml#/SessionSketchData'
         - required:
               - name
               - sketch
+
+SketchEditBody:
+    - $ref: '#/SketchName'
+    - type: 'object'
+      properties:
+          data:
+              $ref: './sessions.yaml#/SessionSketchData'
 
 # ----------------------------------- Fragments
 
