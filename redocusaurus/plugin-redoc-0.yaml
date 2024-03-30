@@ -881,6 +881,37 @@ paths:
           $ref: '#/components/responses/Error'
         '500':
           $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - Sketchs
+      summary: Update a sketch belonging to the current user
+      description: ''
+      parameters:
+        - name: sketchId
+          required: true
+          in: path
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SketchEditBody'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sketch'
+        '400':
+          $ref: '#/components/responses/Error'
+        '401':
+          $ref: '#/components/responses/Error'
+        '404':
+          $ref: '#/components/responses/Error'
+        '500':
+          $ref: '#/components/responses/Error'
     delete:
       tags:
         - Sketchs
@@ -2233,36 +2264,38 @@ components:
           description: Image Y coordinate
       required:
         - type
+    SessionSketchData:
+      type: object
+      properties:
+        displayed:
+          type: boolean
+          description: Game Id
+        paths:
+          type: array
+          description: List of sketch drawing SVG paths
+          items:
+            type: string
+        images:
+          type: array
+          description: List of sketch images
+          items:
+            $ref: '#/components/schemas/SketchImage'
+        tokens:
+          type: array
+          description: List of sketch tokens
+          items:
+            $ref: '#/components/schemas/SketchToken'
+        events:
+          type: array
+          description: List of sketch events
+          items:
+            allOf:
+              - $ref: '#/components/schemas/SketchEvent'
     SessionSketch:
       type: object
       properties:
         sketch:
-          type: object
-          properties:
-            displayed:
-              type: boolean
-              description: Game Id
-            paths:
-              type: array
-              description: List of sketch drawing SVG paths
-              items:
-                type: string
-            images:
-              type: array
-              description: List of sketch images
-              items:
-                $ref: '#/components/schemas/SketchImage'
-            tokens:
-              type: array
-              description: List of sketch tokens
-              items:
-                $ref: '#/components/schemas/SketchToken'
-            events:
-              type: array
-              description: List of sketch events
-              items:
-                allOf:
-                  - $ref: '#/components/schemas/SketchEvent'
+          $ref: '#/components/schemas/SessionSketchData'
     Session:
       allOf:
         - $ref: '#/components/schemas/Id'
@@ -2318,12 +2351,20 @@ components:
             $ref: '#/components/schemas/Sketch'
     SketchCreateBody:
       allOf:
-        - $ref: '#/components/schemas/SketchUserId'
         - $ref: '#/components/schemas/SketchName'
-        - $ref: '#/components/schemas/SessionSketch'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/SessionSketchData'
         - required:
             - name
             - sketch
+    SketchEditBody:
+      - $ref: '#/SketchName'
+      - type: object
+        properties:
+          data:
+            $ref: ./sessions.yaml#/SessionSketchData
     UserList:
       type: object
       properties:
