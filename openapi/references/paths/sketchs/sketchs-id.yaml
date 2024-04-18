@@ -26,7 +26,7 @@ get:
         500:
             $ref: '../../schemas/global.yaml#/Error'
 
-post:
+patch:
     tags:
         - 'Sketchs'
     summary: 'Update a sketch belonging to the current user'

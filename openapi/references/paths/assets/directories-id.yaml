@@ -22,7 +22,7 @@ get:
         500:
             $ref: '../../schemas/global.yaml#/Error'
 
-post:
+patch:
     tags:
         - 'Assets'
     summary: 'Update a directory'

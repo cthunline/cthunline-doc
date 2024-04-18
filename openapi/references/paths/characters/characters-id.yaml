@@ -28,7 +28,7 @@ get:
         500:
             $ref: '../../schemas/global.yaml#/Error'
 
-post:
+patch:
     tags:
         - 'Characters'
     summary: 'Update a character'

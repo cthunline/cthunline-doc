@@ -28,7 +28,7 @@ get:
         500:
             $ref: '../../schemas/global.yaml#/Error'
 
-post:
+patch:
     tags:
         - 'Notes'
     summary: 'Update a note'
