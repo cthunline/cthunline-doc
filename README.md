@@ -40,4 +40,3 @@ npm run serve
 ## Where to edit stuff
 
 * General documentation markdown files are located in `/docs`
-* OpenAPI specification files are located in `/openapi`

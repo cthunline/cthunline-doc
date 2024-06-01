@@ -29,17 +29,6 @@ const config = {
                     customCss: require.resolve('./src/css/custom.css')
                 }
             })
-        ],
-        [
-            'redocusaurus',
-            {
-                specs: [
-                    {
-                        route: '/api/',
-                        spec: './openapi/api.yaml'
-                    }
-                ]
-            }
         ]
     ],
 
@@ -63,17 +52,6 @@ const config = {
                         position: 'left'
                     },
                     {
-                        position: 'left',
-                        label: 'API',
-                        to: '/api'
-                    },
-                    {
-                        type: 'doc',
-                        label: 'WebSockets',
-                        docId: 'websockets/about',
-                        position: 'left'
-                    },
-                    {
                         href: 'https://github.com/cthunline',
                         label: 'GitHub',
                         position: 'right'
@@ -89,10 +67,6 @@ const config = {
                             {
                                 label: 'Documentation',
                                 to: '/docs/documentation/introduction'
-                            },
-                            {
-                                label: 'API reference',
-                                to: '/api'
                             }
                         ]
                     },

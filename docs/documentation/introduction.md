@@ -20,6 +20,8 @@ It's designed to provide useful tools to play RPG with your friends such as:
 
 These are the games implemented right now:
 
+💀 Apocalypse World (1st edition)
+
 🐙 Call of Cthulhu (7th edition)
 
 🚀 Star Wars (D6 edition)
