@@ -89,8 +89,8 @@ CRYPTO_SECRET=abcdef1234567890abcdef1234567890
 COOKIE_SECRET=abcdef123456789abcdef123456789
 # If cookies must be secured (HTTPS only)
 COOKIE_SECURE=true
-# If logs are enabled
-LOG_ENABLED=true
+# Log level (info, warning or error)
+LOG_LEVEL=info
 # (optional) Directory in which logs are stored
 # If omitted logs will only appear in console
 LOG_DIR=/var/log/cthunline
@@ -104,9 +104,6 @@ RL_MAX_REQUESTS=100
 #
 # Database
 #
-# (optional) Disable Prisma telemetry
-# It's very much recommanded as we don't like telemetry bullshit in here
-CHECKPOINT_DISABLE=1
 # PostgreSQL connection URL
 DATABASE_URL=postgresql://username:password@postgresql:5432/database
 ##
