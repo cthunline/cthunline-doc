@@ -1,0 +1,41 @@
+when:
+  branch:
+    - master
+  event:
+    - push
+
+steps:
+- name: install
+  image: node:20-alpine
+  pull: true
+  commands:
+    - npm ci
+- name: lint
+  image: node:20-alpine
+  pull: true
+  depends_on:
+    - install
+  commands:
+    - npm run lint
+- name: deploy
+  image: node:20
+  pull: true
+  depends_on:
+    - lint
+  commands:
+    - mkdir -p $HOME/.ssh
+    - ssh-keyscan -t rsa github.com >> $HOME/.ssh/known_hosts
+    - echo "$GITHUB_KEY" > "$HOME/.ssh/id_rsa"
+    - chmod 600 $HOME/.ssh/id_rsa
+    - npm i
+    - npm run deploy
+  environment:
+    USE_SSH: true
+    GIT_USER:
+      from_secret: git_user
+    GITHUB_KEY:
+      from_secret: github_key
+    GIT_AUTHOR_NAME: Woodpecker
+    GIT_AUTHOR_EMAIL: woodpecker@cthunline.org
+    GIT_COMMITTER_NAME: Woodpecker
+    GIT_COMMITTER_EMAIL: woodpecker@cthunline.org
