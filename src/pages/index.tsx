@@ -1,7 +1,6 @@
-import React from 'react';
-import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
 import styles from './index.module.css';
 
 const HomepageHeader = () => {

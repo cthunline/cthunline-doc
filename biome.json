@@ -1,0 +1,79 @@
+{
+    "$schema": "https://biomejs.dev/schemas/1.9.2/schema.json",
+    "files": {
+        "ignore": [".husky/*", "build", "dist", "node_modules/*"]
+    },
+    "formatter": {
+        "enabled": true,
+        "formatWithErrors": false,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineEnding": "lf"
+    },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "a11y": {
+                "noSvgWithoutTitle": "off"
+            },
+            "correctness": {
+                "noNewSymbol": "error",
+                "noNodejsModules": "off",
+                "noUnusedImports": "error",
+                "noUnusedPrivateClassMembers": "error",
+                "noUnusedVariables": "error",
+                "useArrayLiterals": "error",
+                "useHookAtTopLevel": "error",
+                "useImportExtensions": "error"
+            },
+            "style": {
+                "noNegationElse": "error",
+                "useBlockStatements": "error",
+                "useCollapsedElseIf": "error",
+                "useFragmentSyntax": "error",
+                "useImportType": "error"
+            },
+            "suspicious": {
+                "noConsole": "error",
+                "noEmptyBlockStatements": "error",
+                "useAwait": "error"
+            }
+        }
+    },
+    "javascript": {
+        "formatter": {
+            "jsxQuoteStyle": "double",
+            "quoteStyle": "single",
+            "trailingCommas": "none"
+        }
+    },
+    "overrides": [
+        {
+            "include": ["*.d.ts"],
+            "linter": {
+                "rules": {
+                    "correctness": {
+                        "noUnusedVariables": "off"
+                    }
+                }
+            }
+        },
+        {
+            "include": ["*.md", "*.yml", "*.yaml"],
+            "formatter": {
+                "indentWidth": 2
+            }
+        },
+        {
+            "include": ["src/components/svg/**/*.tsx"],
+            "linter": {
+                "rules": {
+                    "a11y": {
+                        "useKeyWithClickEvents": "off",
+                        "useKeyWithMouseEvents": "off"
+                    }
+                }
+            }
+        }
+    ]
+}
