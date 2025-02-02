@@ -12,13 +12,15 @@ It's designed to provide useful tools to play RPG with your friends such as:
 
 🎵 Jukebox (game master can play audio to everyone)
 
-✏️ Sketch (draw things, display images and small tokens)
+✏️ Sketch (draw things, write things, display images and small tokens)
 
 📓 Notes (remember important stuff)
 
 ## What games can I play?
 
 These are the games implemented right now:
+
+👽 Alien
 
 💀 Apocalypse World (1st edition)
 
@@ -37,6 +39,8 @@ These are the games implemented right now:
 Cthunline is a mix between Cthulhu and Online. I know, that's odd.
 
 ## What does it look like?
+
+> Beware ! The screenshots below are outdated. The app looks better now ! 🎨 Will update screenshot soon(TM)
 
 Take a look:
 
